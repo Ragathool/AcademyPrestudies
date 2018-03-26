@@ -5,21 +5,29 @@
     <title>LOGIN INDEX</title>
 </head>
 <body>
-    <h1>LOGIN INDEX</h1>
-    <form asp-controller="Home" asp-action="Index">
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
-        <br />
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-        <br />
-        <input type="submit" value="Log In" />
-    </form>
-    <form asp-controller="Accounts" asp-action="CreateNewUser">
-        <input type="submit" value="Create User" />
-    </form>
+    
+    <img style="position: fixed;z-index: 0;width:100%"
+         src="~/outsidecurlyfemale.jpg" />
+    <div style=" position:fixed;
+    top: 30%;
+    left: 40%;
+    color:white;">
+        <img style="position:sticky;width:200px;z-index: 1;" src="~/academy_prestudies_logo_w_tag_RGB.png" />
+        <form asp-controller="Home" asp-action="Index">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+            <br />
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+            <br />
+            <input type="submit" value="Log In" float="left" />
+        </form>
+        <form asp-controller="Accounts" asp-action="CreateNewUser">
+            <input type="submit" value="Create User" float="right" />
+        </form>
+    </div>
 
 </body>
 </html>
