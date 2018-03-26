@@ -1,2 +1,0 @@
-# AcademyPrestudies
-SlutprojektVT18

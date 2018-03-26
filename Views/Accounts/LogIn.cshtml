@@ -1,0 +1,25 @@
+﻿@model LogInVM
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LOGIN INDEX</title>
+</head>
+<body>
+    <h1>LOGIN INDEX</h1>
+    <form asp-controller="Home" asp-action="Index">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+        <span asp-validation-for="Name"></span>
+        <br />
+        <label asp-for="Password"></label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+        <br />
+        <input type="submit" value="Log In" />
+    </form>
+    <form asp-controller="Accounts" asp-action="CreateNewUser">
+        <input type="submit" value="Create User" />
+    </form>
+
+</body>
+</html>
