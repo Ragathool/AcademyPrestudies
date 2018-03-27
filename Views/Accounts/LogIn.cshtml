@@ -13,7 +13,7 @@
     left: 40%;
     color:white;">
         <img style="position:sticky;width:200px;z-index: 1;" src="~/academy_prestudies_logo_w_tag_RGB.png" />
-        <form asp-controller="Accounts" asp-action="LogIn">
+        <form asp-controller="Accounts" asp-action="Login" @*asp-route-returnUrl="@Model.ReturnUrl"*@>
             <label asp-for="Name"></label>
             <input asp-for="Name" />
             <span asp-validation-for="Name"></span>
@@ -22,7 +22,7 @@
             <input asp-for="Password" />
             <span asp-validation-for="Password"></span>
             <br />
-            <input type="submit" value="Log In" float="left" />
+            <input type="submit" value="Login" />
         </form>
         <form asp-controller="Accounts" asp-action="CreateNewUser" method="Get">
             <input type="submit" value="Create User" float="right" />

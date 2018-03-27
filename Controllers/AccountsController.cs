@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AcademyPrestudies.Models;
 using AcademyPrestudies.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace AcademyPrestudies.Controllers
 {
@@ -12,40 +13,49 @@ namespace AcademyPrestudies.Controllers
     {
 
         MuninRepository repository;
+        AccountRepository accountrepository;
 
-        public AccountsController(MuninRepository repository)
+        public AccountsController(MuninRepository repository, IMemoryCache cache, AccountRepository accountrepository)
         {
             this.repository = repository;
-        }
-
-        [Route ("")]
-        [HttpPost]
-        public IActionResult LogIn(LogInVM model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            if (repository.LogInUser(model))
-            {
-                return RedirectToAction("Page1", "Home");
-            }
-            else 
-            {
-                ModelState.AddModelError("Name", "Wrong username or password");
-                return View();
-            }
+            this.accountrepository = accountrepository;
+            this.cache = cache;
 
         }
+        IMemoryCache cache;
 
         [Route("")]
         [HttpGet]
+        [Route("login")]
         public IActionResult LogIn()
         {
-                return View();
+            //var model = new LogInVM { ReturnUrl = returnUrl };
+            return View();
 
         }
+
+        [HttpPost]
+        [Route("logIn")]
+        public async Task<IActionResult> Login(LogInVM viewModel)
+        {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+
+            // Check if credentials is valid (and set auth cookie)
+            if (!await accountrepository.TryLoginAsync(viewModel))
+            {
+                // Show login error
+                ModelState.AddModelError(nameof(LogInVM.Name), "Invalid credentials");
+                return View(viewModel);
+            }
+
+            // Redirect user
+            if (string.IsNullOrWhiteSpace(viewModel.ReturnUrl))
+                return RedirectToAction(nameof(HomeController.CourseFrontPage), "Home");
+            else
+                return Redirect(viewModel.ReturnUrl);
+        }
+
 
         [HttpGet]
         public IActionResult CreateNewUser()
@@ -54,26 +64,22 @@ namespace AcademyPrestudies.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateNewUser(CreateNewUserVM model)
+        public async Task<IActionResult> CreateNewUser(CreateNewUserVM model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-
-            if (repository.CheckExistingUser(model))
-            {
-                ModelState.AddModelError("Name", "Name already exists");
-                return View(model);
-            }
             else
-	        {
-                repository.AddUser(model);
-
-                return RedirectToAction("Page1", "Home");
+            {
+                await accountrepository.AddUser(model);
+                return RedirectToAction(nameof(HomeController.CourseFrontPage), "Home");
             }
 
+            
         }
 
+
     }
-}
+
+   }

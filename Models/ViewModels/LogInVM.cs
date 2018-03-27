@@ -8,10 +8,12 @@ namespace AcademyPrestudies.Models.ViewModels
 {
     public class LogInVM
     {
-        //public int Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
+
+        public string ReturnUrl { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

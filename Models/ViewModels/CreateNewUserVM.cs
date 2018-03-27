@@ -17,7 +17,7 @@ namespace AcademyPrestudies.Models.ViewModels
         //public string ConfirmName { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password, ErrorMessage = "Wrong format on password")]
         public string Password { get; set; }
     }
 }
