@@ -9,12 +9,8 @@ namespace AcademyPrestudies.Controllers
 {
     public class HomeController : Controller
     {
-         public IActionResult x()
-        {
-            return View();
-        }
 
-        public IActionResult Index()
+        public IActionResult Page1()
         {
             return View();
         }

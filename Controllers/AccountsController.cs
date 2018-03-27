@@ -40,7 +40,10 @@ namespace AcademyPrestudies.Controllers
             }
             else
             {
-                return RedirectToAction("Home/Index");
+                repository.AddUser(model);
+
+
+                return RedirectToAction("Page1", "Home");
             }
         }
 
