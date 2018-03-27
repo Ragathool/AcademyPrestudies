@@ -9,7 +9,7 @@ namespace AcademyPrestudies.Models.ViewModels
 {
     public class CreateNewUserVM
     {
-        [Required]
+        [Required(ErrorMessage = "Fel namn")]
         public string Name { get; set; }
 
         //[NotMapped]

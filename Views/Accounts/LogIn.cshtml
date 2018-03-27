@@ -13,7 +13,7 @@
     left: 40%;
     color:white;">
         <img style="position:sticky;width:200px;z-index: 1;" src="~/academy_prestudies_logo_w_tag_RGB.png" />
-        <form asp-controller="Home" asp-action="Index">
+        <form asp-controller="Accounts" asp-action="LogIn">
             <label asp-for="Name"></label>
             <input asp-for="Name" />
             <span asp-validation-for="Name"></span>
@@ -24,7 +24,7 @@
             <br />
             <input type="submit" value="Log In" float="left" />
         </form>
-        <form asp-controller="Accounts" asp-action="CreateNewUser">
+        <form asp-controller="Accounts" asp-action="CreateNewUser" method="Get">
             <input type="submit" value="Create User" float="right" />
         </form>
     </div>

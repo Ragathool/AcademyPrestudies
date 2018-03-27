@@ -8,6 +8,8 @@ namespace AcademyPrestudies.Models.ViewModels
 {
     public class LogInVM
     {
+        //public int Id { get; set; }
+
         [Required]
         public string Name { get; set; }
 

@@ -24,15 +24,43 @@ namespace AcademyPrestudies.Models
                 Password = model.Password
             };
 
-            if (context.Users.Any(eu => eu.Name != model.Name))
-            {
                 context.Users.Add(u);
                 context.SaveChanges();
                 return u.Id;
-            }
-            return u.Id;
         }
 
-        
+        internal bool CheckExistingUser(CreateNewUserVM model)
+        {
+            var u = new Users
+            {
+                Name = model.Name,
+                Password = model.Password
+            };
+            if (context.Users.Any(eu => eu.Name == model.Name))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        internal bool LogInUser(LogInVM model)
+        {
+            var LogIn = context.Users.SingleOrDefault(eu => eu.Name == model.Name);
+            if (LogIn != null)
+            {
+                if (LogIn.Password == model.Password)
+                {
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
+
+
     }
 }
