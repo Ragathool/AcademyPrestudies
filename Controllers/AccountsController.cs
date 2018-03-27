@@ -42,9 +42,9 @@ namespace AcademyPrestudies.Controllers
             {
                 repository.AddUser(model);
 
-
                 return RedirectToAction("Page1", "Home");
             }
+
         }
 
     }

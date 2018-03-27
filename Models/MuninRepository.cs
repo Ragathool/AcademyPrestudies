@@ -24,9 +24,15 @@ namespace AcademyPrestudies.Models
                 Password = model.Password
             };
 
-            context.Users.Add(u);
-            context.SaveChanges();
+            if (context.Users.Any(eu => eu.Name != model.Name))
+            {
+                context.Users.Add(u);
+                context.SaveChanges();
+                return u.Id;
+            }
             return u.Id;
         }
+
+        
     }
 }
