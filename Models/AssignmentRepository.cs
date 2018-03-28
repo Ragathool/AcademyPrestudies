@@ -9,18 +9,19 @@ namespace AcademyPrestudies.Models
 {
     public class AssignmentRepository
     {
-        private readonly AssignmentContext context;
+        private readonly MuninContext context;
 
-        public AssignmentRepository(AssignmentContext context)
+        public AssignmentRepository(MuninContext context)
         {
             this.context = context;
         }
 
 
-        public void AssignmentCompleted()
+        public void AssignmentCompleted(AssignmentPageVM model)
         {
             
-            CourseProgress CourseProgress = new CourseProgress{ FinishedId = true };
+            CourseProgress CourseProgress = new CourseProgress{FinishedId = true, };
+            context.CourseProgress.Update(CourseProgress);
             context.SaveChanges();
         }
 

@@ -21,7 +21,7 @@ namespace AcademyPrestudies
         public void ConfigureServices(IServiceCollection services)
         {
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Odin;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            services.AddDbContext<AssignmentContext>(o => o.UseSqlServer(connString));
+            services.AddDbContext<MuninContext>(o => o.UseSqlServer(connString));
             services.AddTransient<AssignmentRepository>();
             services.AddMvc();
             services.AddMemoryCache();

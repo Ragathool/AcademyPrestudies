@@ -38,7 +38,7 @@ namespace AcademyPrestudies.Controllers
         [HttpPost]
         public IActionResult AssignmentPage(AssignmentPageVM model)
         {
-            assignmentrepository.AssignmentCompleted();
+            assignmentrepository.AssignmentCompleted(model);
 
             return View(model);
         }

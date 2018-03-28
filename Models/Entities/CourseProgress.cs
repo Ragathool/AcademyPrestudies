@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 
 namespace AcademyPrestudies.Models.Entities
 {
@@ -10,10 +9,5 @@ namespace AcademyPrestudies.Models.Entities
         public int? CourseId { get; set; }
         public int? UserId { get; set; }
         public bool FinishedId { get; set; }
-
-        public Courses Course { get; set; }
-        public Users User { get; set; }
-
-        
     }
 }

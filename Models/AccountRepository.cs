@@ -1,4 +1,5 @@
-﻿using AcademyPrestudies.Models.ViewModels;
+﻿using AcademyPrestudies.Models.Entities;
+using AcademyPrestudies.Models.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
@@ -10,6 +11,7 @@ namespace AcademyPrestudies.Models
 {
     public class AccountRepository
     {
+        MuninContext context;
         IdentityDbContext identityContext;
         UserManager<IdentityUser> userManager;
         SignInManager<IdentityUser> signInManager;
@@ -17,10 +19,12 @@ namespace AcademyPrestudies.Models
         public AccountRepository(
             IdentityDbContext identityContext,
             UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager
+            SignInManager<IdentityUser> signInManager,
+            MuninContext context
             )
         {
             this.identityContext = identityContext;
+            this.context = context;
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
@@ -41,7 +45,18 @@ namespace AcademyPrestudies.Models
 
         internal async Task<IdentityResult> AddUser(CreateNewUserVM model)
         {
-            var result = await userManager.CreateAsync(new IdentityUser(model.Name), model.Password);
+            var newUser = new IdentityUser(model.UserName);
+            var result = await userManager.CreateAsync(newUser, model.Password);
+            var newUserId = newUser.Id;
+            context.Users.Add(new Users
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                AspNetUserId = newUserId
+
+            });
+            await context.SaveChangesAsync();
+            
             return result;
         }
     }

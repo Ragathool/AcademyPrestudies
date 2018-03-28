@@ -10,7 +10,7 @@ namespace AcademyPrestudies.Models.ViewModels
     public class CreateNewUserVM
     {
         [Required(ErrorMessage = "Fel namn")]
-        public string Name { get; set; }
+        public string UserName { get; set; }
 
         //[NotMapped]
         //[Compare("Name")]
@@ -20,5 +20,7 @@ namespace AcademyPrestudies.Models.ViewModels
         [DataType(DataType.Password, ErrorMessage = "Wrong format on password")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string Password { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
     }
 }
