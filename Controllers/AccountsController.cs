@@ -12,12 +12,12 @@ namespace AcademyPrestudies.Controllers
     public class AccountsController : Controller
     {
 
-        MuninRepository repository;
+        AssignmentRepository assignmentrepository;
         AccountRepository accountrepository;
 
-        public AccountsController(MuninRepository repository, IMemoryCache cache, AccountRepository accountrepository)
+        public AccountsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository)
         {
-            this.repository = repository;
+            this.assignmentrepository = assignmentrepository;
             this.accountrepository = accountrepository;
             this.cache = cache;
 
@@ -51,7 +51,7 @@ namespace AcademyPrestudies.Controllers
 
             // Redirect user
             if (string.IsNullOrWhiteSpace(viewModel.ReturnUrl))
-                return RedirectToAction(nameof(HomeController.CourseFrontPage), "Home");
+                return RedirectToAction(nameof(AssignmentsController.CourseFrontPage), "Assignments");
             else
                 return Redirect(viewModel.ReturnUrl);
         }
@@ -73,7 +73,7 @@ namespace AcademyPrestudies.Controllers
             else
             {
                 await accountrepository.AddUser(model);
-                return RedirectToAction(nameof(HomeController.CourseFrontPage), "Home");
+                return RedirectToAction(nameof(AssignmentsController.CourseFrontPage), "Assignments");
             }
 
             

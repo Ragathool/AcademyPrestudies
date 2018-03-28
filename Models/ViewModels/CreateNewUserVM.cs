@@ -18,6 +18,7 @@ namespace AcademyPrestudies.Models.ViewModels
 
         [Required]
         [DataType(DataType.Password, ErrorMessage = "Wrong format on password")]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string Password { get; set; }
     }
 }

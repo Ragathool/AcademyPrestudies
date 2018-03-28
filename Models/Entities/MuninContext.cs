@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AcademyPrestudies.Models.Entities
 {
-    public partial class MuninContext : DbContext
+    public partial class AssignmentContext : DbContext
     {
 
         public virtual DbSet<CourseProgress> CourseProgress { get; set; }

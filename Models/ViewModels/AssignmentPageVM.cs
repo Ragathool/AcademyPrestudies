@@ -1,10 +1,12 @@
-﻿using System;
+﻿using AcademyPrestudies.Models.Entities;
+using System;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace AcademyPrestudies.Models.Entities
+namespace AcademyPrestudies.Models.ViewModels
 {
-    public partial class CourseProgress
+    public class AssignmentPageVM
     {
         public int Id { get; set; }
         public int? CourseId { get; set; }
@@ -13,7 +15,5 @@ namespace AcademyPrestudies.Models.Entities
 
         public Courses Course { get; set; }
         public Users User { get; set; }
-
-        
     }
 }

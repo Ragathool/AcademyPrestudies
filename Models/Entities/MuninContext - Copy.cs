@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace AcademyPrestudies.Models.Entities
 {
-    public partial class MuninContext : DbContext
+    public partial class AssignmentContext : DbContext
     {
-        public MuninContext(DbContextOptions<MuninContext> options) : base(options)
+        public AssignmentContext(DbContextOptions<AssignmentContext> options) : base(options)
         {
         }
     }
