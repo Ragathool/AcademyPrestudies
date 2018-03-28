@@ -6,9 +6,13 @@
 </head>
 <body>
     <h1>AssignmentPage</h1>
-    <form asp-controller="Assignments" asp-action="AssignmentPage">
-        <input type="submit" value="Assignment Completed" />
-    </form>
+    <p>@Model.Name</p>
+    <p>@Model.Description</p>
+
+    <p>@Model.CourseId</p>
+    <p>@Model.UserId</p>
+    <p>@Model.FinishedId</p>
+   
 
 </body>
 </html>

@@ -8,12 +8,10 @@ namespace AcademyPrestudies.Models.ViewModels
 {
     public class CourseFrontPageVM
     {
+        
         public int Id { get; set; }
-        public int? CourseId { get; set; }
-        public int? UserId { get; set; }
-        public bool FinishedId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
-        public Courses Course { get; set; }
-        public Users User { get; set; }
     }
 }

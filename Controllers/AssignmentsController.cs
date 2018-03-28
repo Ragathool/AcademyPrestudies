@@ -23,26 +23,36 @@ namespace AcademyPrestudies.Controllers
             this.cache = cache;
         }
 
-        public IActionResult CourseFrontPage()
+        [HttpGet]
+        public IActionResult CourseFrontPage(CourseFrontPageVM model)
         {
-            return View();
+            CourseFrontPageVM[] courseArray = assignmentrepository.GetAllAssignments();
+            return View(courseArray);
         }
 
         [HttpGet]
-        public IActionResult AssignmentPage()
+        public IActionResult AssignmentPage(int id)
         {
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AssignmentPage(AssignmentPageVM model)
-        {
-            assignmentrepository.AssignmentCompleted(model);
+            var courseModel = assignmentrepository.GetAssignmentById(id);
+            
+            AssignmentPageVM model = new AssignmentPageVM
+            {
+                Name = courseModel.Name,
+                Description = courseModel.Description,
+                UserId = 1,
+                CourseId = courseModel.Id,
+                FinishedId = true
+            };
 
             return View(model);
         }
 
-        
+        [HttpPost]
+        public IActionResult AssignmentPage()
+        {
+            return View();
+        }
+
+
     }
 }

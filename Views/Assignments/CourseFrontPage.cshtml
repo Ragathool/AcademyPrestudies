@@ -1,4 +1,4 @@
-﻿@model CourseFrontPageVM
+﻿@model CourseFrontPageVM[]
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,10 +6,17 @@
 </head>
 <body>
     <h1>Page 1</h1>
-    <a href="AssignmentPage/">AssignmentPage</a>
-    
 
-    
+    <ul>
+
+        @foreach (var item in Model)
+         {
+            <li>
+            <a href="AssignmentPage/@item.Id">@item.Name</a>
+            </li>
+         }
+
+    </ul>
 
 
 </body>

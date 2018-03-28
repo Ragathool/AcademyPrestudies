@@ -25,5 +25,26 @@ namespace AcademyPrestudies.Models
             context.SaveChanges();
         }
 
+        internal CourseFrontPageVM[] GetAllAssignments()
+        {
+            var a = context.Courses.Select 
+                    (c => new CourseFrontPageVM
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Description = c.Description
+                    })
+                    .OrderBy(c => c.Name)
+                    .ToArray();
+
+            return a;
+        }
+
+        internal Courses GetAssignmentById(int id)
+        {
+            var a = context.Courses.FirstOrDefault
+                    (x => x.Id == id);
+            return a;
+        }
     }
 }
