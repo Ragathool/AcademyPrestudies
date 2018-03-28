@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AcademyPrestudies.Models;
 using AcademyPrestudies.Models.Entities;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,11 @@ namespace AcademyPrestudies
             var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Odin;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<MuninContext>(o => o.UseSqlServer(connString));
             services.AddTransient<AssignmentRepository>();
+
+            services.AddAuthentication(
+            CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(o => o.LoginPath = "/Account/LogIn");
+
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();

@@ -1,10 +1,12 @@
 ﻿using AcademyPrestudies.Models.Entities;
 using AcademyPrestudies.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace AcademyPrestudies.Models
@@ -15,19 +17,23 @@ namespace AcademyPrestudies.Models
         IdentityDbContext identityContext;
         UserManager<IdentityUser> userManager;
         SignInManager<IdentityUser> signInManager;
+        RoleManager<IdentityRole> roleManager;
 
         public AccountRepository(
             IdentityDbContext identityContext,
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
+            RoleManager<IdentityRole> roleManager,
             MuninContext context
             )
         {
             this.identityContext = identityContext;
-            this.context = context;
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.roleManager = roleManager;            this.context = context;
         }
+
+
 
         public async Task<bool> TryLoginAsync(LogInVM viewModel)
         {
@@ -38,12 +44,18 @@ namespace AcademyPrestudies.Models
             //var createResult = await userManager.CreateAsync(new IdentityUser("user"), "Password_123");
 
             var loginResult = await signInManager.PasswordSignInAsync(viewModel.Name, viewModel.Password, false, false);
+
+            
+
             return loginResult.Succeeded;
-
-
         }
 
-        internal async Task<IdentityResult> AddUser(CreateNewUserVM model)
+        public int GetUserId()
+        {
+            return 0;
+        }
+
+            internal async Task<IdentityResult> AddUser(CreateNewUserVM model)
         {
             var newUser = new IdentityUser(model.UserName);
             var result = await userManager.CreateAsync(newUser, model.Password);
@@ -57,6 +69,7 @@ namespace AcademyPrestudies.Models
             });
             await context.SaveChangesAsync();
             
+
             return result;
         }
     }

@@ -5,21 +5,24 @@ using System.Threading.Tasks;
 using AcademyPrestudies.Models;
 using AcademyPrestudies.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace AcademyPrestudies.Controllers
 {
     public class AccountsController : Controller
     {
+        private UserManager<IdentityUser> _userManager;
 
-        AssignmentRepository assignmentrepository;
+        AssignmentRepository assignmentrepository;  
         AccountRepository accountrepository;
 
-        public AccountsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository)
+        public AccountsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository, UserManager<IdentityUser> userManager)
         {
             this.assignmentrepository = assignmentrepository;
             this.accountrepository = accountrepository;
             this.cache = cache;
+            _userManager = userManager;
 
         }
         IMemoryCache cache;
@@ -52,6 +55,7 @@ namespace AcademyPrestudies.Controllers
             // Redirect user
             if (string.IsNullOrWhiteSpace(viewModel.ReturnUrl))
                 return RedirectToAction(nameof(AssignmentsController.CourseFrontPage), "Assignments");
+
             else
                 return Redirect(viewModel.ReturnUrl);
         }
@@ -60,6 +64,7 @@ namespace AcademyPrestudies.Controllers
         [HttpGet]
         public IActionResult CreateNewUser()
         {
+
             return View();
         }
 
@@ -78,6 +83,7 @@ namespace AcademyPrestudies.Controllers
 
             
         }
+
 
 
     }

@@ -21,6 +21,8 @@ namespace AcademyPrestudies.Models
         {
             
             CourseProgress CourseProgress = new CourseProgress{FinishedId = true, };
+            // WHERE context. CourseId && UserID == CourseId && UserID
+            // CourseProgress FinishedId = true, 
             context.CourseProgress.Update(CourseProgress);
             context.SaveChanges();
         }
@@ -45,6 +47,14 @@ namespace AcademyPrestudies.Models
             var a = context.Courses.FirstOrDefault
                     (x => x.Id == id);
             return a;
+        }
+
+        internal int GetUserIdByAspNetId(string id)
+        {
+            var a = context.Users.FirstOrDefault
+                    (x => x.AspNetUserId == id);
+            var usersId = a.Id;
+            return usersId;
         }
     }
 }
