@@ -22,7 +22,7 @@ namespace AcademyPrestudies
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Odin;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            var connString = @"Data Source=prestudies.database.windows.net;Initial Catalog=Odin;Integrated Security=False;User ID=ACD;Password=prestudies18!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             services.AddDbContext<MuninContext>(o => o.UseSqlServer(connString));
             services.AddTransient<AssignmentRepository>();
 
@@ -52,12 +52,16 @@ namespace AcademyPrestudies
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IConfiguration conf)
         {
             {
                 if (env.IsDevelopment())
                 {
                     app.UseDeveloperExceptionPage();
+                    // AppSettings.json: { “mySetting”: “…”}
+                    var mySetting = conf["mySetting"];
+                    // Secrets.json: { “connectionStrings”: { “myConnString” : “…”} }
+                    var mySecretConnString = conf.GetConnectionString("myConnString");
                 }
                 app.UseAuthentication();
                 app.UseSession();

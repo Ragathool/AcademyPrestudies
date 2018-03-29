@@ -6,7 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="StyleSheet.css" />
+    <Compile Remove="Styles\**" />
+    <Content Remove="Styles\**" />
+    <EmbeddedResource Remove="Styles\**" />
+    <None Remove="Styles\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Styles\" />
+    <None Include="wwwroot\Styles\StyleSheet.css" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,8 @@ namespace AcademyPrestudies.Models
         IdentityDbContext identityContext;
         UserManager<IdentityUser> userManager;
         SignInManager<IdentityUser> signInManager;
-        RoleManager<IdentityRole> roleManager;
+        RoleManager<IdentityRole> roleManager;
+
 
         public AccountRepository(
             IdentityDbContext identityContext,
@@ -30,7 +31,9 @@ namespace AcademyPrestudies.Models
             this.identityContext = identityContext;
             this.userManager = userManager;
             this.signInManager = signInManager;
-            this.roleManager = roleManager;            this.context = context;
+            this.roleManager = roleManager;
+            this.context = context;
+
         }
 
 
