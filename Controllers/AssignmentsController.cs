@@ -65,7 +65,7 @@ namespace AcademyPrestudies.Controllers
         public IActionResult AssignmentPage(AssignmentPageVM model)
         {
             assignmentrepository.AssignmentCompleted(model);
-            return View();
+            return View(model);
         }
 
 

@@ -6,37 +6,19 @@
 </head>
 <body>
     <h1>AssignmentPage</h1>
-  
+
 
     <form asp-controller="Assignments" asp-action="AssignmentPage">
-        <div hidden>
-            <label asp-for="Name"></label>
-            <input asp-for="@model.Name" />
-            <span asp-validation-for="Name"></span>
-            <br />
-            <label asp-for="Description"></label>
-            <input asp-for="@model.Description" />
-            <span asp-validation-for="Description"></span>
-            <br />
-            <br />
-            <label asp-for="CourseId"></label>
-            <input asp-for="@model.CourseId" />
-            <span asp-validation-for="CourseId"></span>
-            <br />
-            <label asp-for="UserId"></label>
-            <input asp-for="@model.UserId" />
-            <span asp-validation-for="UserId"></span>
-            <br />
-            <label asp-for="FinishedId"></label>
-            <input asp-for="@model.FinishedId" />
-            <span asp-validation-for="FinishedId"></span>
-            <br />
-        </div>
+
+        @Html.HiddenFor(x => x.UserId)
+        @Html.HiddenFor(y => y.CourseId)
+        @Html.HiddenFor(z => z.FinishedId)
+        @Html.HiddenFor(u => u.Description)
 
         <input type="submit" value="COURSE COMPLETED" />
     </form>
 
-    <h2>@Model.Description</h2>
+    <h2>Description: @Model.Description</h2>
 
 
 </body>
