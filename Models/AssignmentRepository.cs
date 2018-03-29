@@ -20,10 +20,12 @@ namespace AcademyPrestudies.Models
         public void AssignmentCompleted(AssignmentPageVM model)
         {
             
-            CourseProgress CourseProgress = new CourseProgress{FinishedId = true, };
-            // WHERE context. CourseId && UserID == CourseId && UserID
-            // CourseProgress FinishedId = true, 
-            context.CourseProgress.Update(CourseProgress);
+            var a = context.CourseProgress.FirstOrDefault
+                    (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
+
+            a.FinishedId = true;
+
+            context.CourseProgress.Update(a);
             context.SaveChanges();
         }
 

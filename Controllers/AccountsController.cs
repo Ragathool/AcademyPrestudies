@@ -78,7 +78,7 @@ namespace AcademyPrestudies.Controllers
             else
             {
                 await accountrepository.AddUser(model);
-                return RedirectToAction(nameof(AssignmentsController.CourseFrontPage), "Assignments");
+                return RedirectToAction(nameof(AccountsController.LogIn), "Accounts");
             }
 
             

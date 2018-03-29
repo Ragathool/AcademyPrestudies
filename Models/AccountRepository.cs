@@ -60,7 +60,8 @@ namespace AcademyPrestudies.Models
             var newUser = new IdentityUser(model.UserName);
             var result = await userManager.CreateAsync(newUser, model.Password);
             var newUserId = newUser.Id;
-            context.Users.Add(new Users
+
+            var u = context.Users.Add(new Users
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -68,9 +69,41 @@ namespace AcademyPrestudies.Models
 
             });
             await context.SaveChangesAsync();
-            
+
+            var userid = GetUserIdByAspNetId(newUserId);
+            var assignmentcount = GetAssignmentCount();
+
+            for (int i = 1; i <= assignmentcount; i++)
+            {
+                context.CourseProgress.Add(new CourseProgress
+                {
+                    UserId = userid,
+                    CourseId = i,
+                    FinishedId = false
+
+                });
+                await context.SaveChangesAsync();
+            }
+
+
 
             return result;
+        }
+
+        private int GetAssignmentCount()
+            {
+            var a = context.Courses.ToList();
+
+            return a.Count;
+            }
+        
+
+        internal int GetUserIdByAspNetId(string id)
+        {
+            var a = context.Users.FirstOrDefault
+                    (x => x.AspNetUserId == id);
+            var usersId = a.Id;
+            return usersId;
         }
     }
 }

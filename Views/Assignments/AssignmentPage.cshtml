@@ -6,16 +6,38 @@
 </head>
 <body>
     <h1>AssignmentPage</h1>
-    <p>Name: @Model.Name</p>
-    <p>Description: @Model.Description</p>
+  
 
-    <p>CourseId: @Model.CourseId</p>
-    <p>UserId: @Model.UserId</p>
-    <p>FinishedId: @Model.FinishedId</p>
+    <form asp-controller="Assignments" asp-action="AssignmentPage">
+        <div hidden>
+            <label asp-for="Name"></label>
+            <input asp-for="@model.Name" />
+            <span asp-validation-for="Name"></span>
+            <br />
+            <label asp-for="Description"></label>
+            <input asp-for="@model.Description" />
+            <span asp-validation-for="Description"></span>
+            <br />
+            <br />
+            <label asp-for="CourseId"></label>
+            <input asp-for="@model.CourseId" />
+            <span asp-validation-for="CourseId"></span>
+            <br />
+            <label asp-for="UserId"></label>
+            <input asp-for="@model.UserId" />
+            <span asp-validation-for="UserId"></span>
+            <br />
+            <label asp-for="FinishedId"></label>
+            <input asp-for="@model.FinishedId" />
+            <span asp-validation-for="FinishedId"></span>
+            <br />
+        </div>
 
-    <button>COURSE FINISHED</button>
-    @*Anropa metod CourseFinished(); (via action?) med CourseID och UserID*@
-   
+        <input type="submit" value="COURSE COMPLETED" />
+    </form>
+
+    <h2>@Model.Description</h2>
+
 
 </body>
 </html>

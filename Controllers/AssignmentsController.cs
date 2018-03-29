@@ -55,17 +55,19 @@ namespace AcademyPrestudies.Controllers
                 Description = courseModel.Description,
                 UserId = userId,
                 CourseId = courseModel.Id,
-                FinishedId = true
+                FinishedId = false
             };
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult AssignmentPage()
+        public IActionResult AssignmentPage(AssignmentPageVM model)
         {
+            assignmentrepository.AssignmentCompleted(model);
             return View();
         }
+
 
     }
 }

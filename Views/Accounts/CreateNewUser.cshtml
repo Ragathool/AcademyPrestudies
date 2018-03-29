@@ -9,27 +9,28 @@
     <h1>CREATE NEW USER GET</h1>
 
     <h1>Create new user</h1>
-    
-    <form asp-controller="Accounts" asp-action="CreateNewUser">
 
-        <label asp-for="FirstName"></label>
-        <input asp-for="FirstName" />
-        <span asp-validation-for="FirstName"></span>
-        <br />
-        <label asp-for="LastName"></label>
-        <input asp-for="LastName" />
-        <span asp-validation-for="LastName"></span>
-        <br />
-        <br />
-        <label asp-for="UserName"></label>
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
-        <br />
-        <label asp-for="Password"></label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-        <br />
-        <input type="submit" value="Register" />
+    
+        <form asp-controller="Accounts" asp-action="CreateNewUser">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" />
+            <span asp-validation-for="FirstName"></span>
+            <br />
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" />
+            <span asp-validation-for="LastName"></span>
+            <br />
+            <br />
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" />
+            <span asp-validation-for="UserName"></span>
+            <br />
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+            <br />
+
+    <input type="submit" value="Register" />
     </form>
 </body>
 </html>
