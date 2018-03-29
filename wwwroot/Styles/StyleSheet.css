@@ -1,5 +1,5 @@
 ﻿body {
-    margin: 0%;
+    margin: 1%;
 }
 
 .img {
@@ -8,7 +8,7 @@
 
 .banner {
     margin-left: 25%;
-    margin-bottom: 0;
+    margin-bottom: 1%;
     padding: 7px;
     height: auto;
     background-color: #4CAF50;
@@ -20,11 +20,12 @@
     height: 1000px;
 }
 
-div.navlogo {
+navlogo {
+    margin: 1%;
 }
 
 #pic {
-    padding: 0;
+    padding: 1%;
     width: 25%;
 }
 
@@ -45,7 +46,7 @@ li a {
     text-decoration: none;
 }
 
-    li a.active {
+    active {
         background-color: #4CAF50;
         color: white;
     }
