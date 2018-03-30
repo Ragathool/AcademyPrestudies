@@ -14,5 +14,13 @@ namespace AcademyPrestudies.Models.ViewModels
         public int? CourseId { get; set; }
         public int? UserId { get; set; }
         public bool FinishedId { get; set; }
+        public string Instruction { get; set; }
+        public string Solution { get; set; }
+        public string Url { get; set; }
+        public string LinkInfo { get; set; }
+        public string TipInfo { get; set; }
+
+    
+        public Links Links { get; set; }
     }
 }

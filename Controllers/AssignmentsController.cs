@@ -47,15 +47,24 @@ namespace AcademyPrestudies.Controllers
             var aspNetUserId = _userManager.GetUserId(User);
 
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
-            
 
-            AssignmentPageVM model = new AssignmentPageVM
+            List<string> Links = new List<string>();
+
+            Links.Add("hej");
+
+                AssignmentPageVM model = new AssignmentPageVM
             {
                 Name = courseModel.Name,
                 Description = courseModel.Description,
                 UserId = userId,
                 CourseId = courseModel.Id,
-                FinishedId = false
+                FinishedId = false,
+                Instruction = "instruction",
+                Solution = "solution",
+                TipInfo ="tips",
+                Url = "http",
+                LinkInfo ="Linkinfo"
+
             };
 
             return View(model);

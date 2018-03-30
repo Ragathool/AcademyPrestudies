@@ -47,20 +47,25 @@
 
         <div class="content">
             <h2>Uppgiftsnamn</h2>
-            <h3>Description: @Model.Description</h3>
+            <h3>Kursnamn: @Model.Name</h3>
 
-            <p>Länkar och information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift</p>
+            <p>@Model.Description description Länkar och information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift</p>
+            
+            <p>@Model.LinkInfo linkinfo</p>
+            <p>@Model.Url url</p>
+            <a href="#">content</a>
 
-            <p>
+
+            <p>@Model.Instruction instruction
                 kod kod kod kod kod kod kod kod kod kod kod kodkod kod kod kod kod
                 kod kod kodkod kod kod kod kod kod kod kodkod kod kod kod kod kod kod kodkod kod
                 kod kod kod kod kod kodkod kod kod kodkod kod kod kod kod kod kod kodkod kod kod kod
                 kod kod kod kod
             </p>
 
-            <p> länk till svarsalternativ eller svaret dolt</p>
+            <p> @Model.Solution solutionlänk till svarsalternativ eller svaret dolt</p>
 
-            <p> Råd om vad man kan läsa och kolla på om man ahr svårt för uppgiften</p>
+            <p> @Model.TipInfo tipsinfo Råd om vad man kan läsa och kolla på om man ahr svårt för uppgiften</p>
         </div>
     </div>
 </body>

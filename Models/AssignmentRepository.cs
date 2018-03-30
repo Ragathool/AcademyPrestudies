@@ -19,7 +19,8 @@ namespace AcademyPrestudies.Models
 
         public void AssignmentCompleted(AssignmentPageVM model)
         {
-            
+
+
             var a = context.CourseProgress.FirstOrDefault
                     (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
 
@@ -31,7 +32,7 @@ namespace AcademyPrestudies.Models
 
         internal CourseFrontPageVM[] GetAllAssignments()
         {
-            var a = context.Courses.Select 
+            var a = context.Courses.Select
                     (c => new CourseFrontPageVM
                     {
                         Id = c.Id,
@@ -58,5 +59,10 @@ namespace AcademyPrestudies.Models
             var usersId = a.Id;
             return usersId;
         }
+
+        //private List<Links> GetLinks()
+        //{
+        //    return ;
+        //}
     }
 }
