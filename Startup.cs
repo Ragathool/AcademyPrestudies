@@ -18,11 +18,17 @@ namespace AcademyPrestudies
 {
     public class Startup
     {
+        private readonly IConfiguration conf;
+
+        public Startup(IConfiguration conf)
+        {
+            this.conf = conf;
+        }
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var connString = @"Data Source=prestudies.database.windows.net;Initial Catalog=Odin;Integrated Security=False;User ID=ACD;Password=prestudies18!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            var connString = conf.GetConnectionString("myConnectionString");
             services.AddDbContext<MuninContext>(o => o.UseSqlServer(connString));
             services.AddTransient<AssignmentRepository>();
 
@@ -58,10 +64,7 @@ namespace AcademyPrestudies
                 if (env.IsDevelopment())
                 {
                     app.UseDeveloperExceptionPage();
-                    // AppSettings.json: { “mySetting”: “…”}
-                    var mySetting = conf["mySetting"];
-                    // Secrets.json: { “connectionStrings”: { “myConnString” : “…”} }
-                    var mySecretConnString = conf.GetConnectionString("myConnString");
+                    
                 }
                 app.UseAuthentication();
                 app.UseSession();
