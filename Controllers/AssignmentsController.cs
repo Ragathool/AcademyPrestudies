@@ -42,29 +42,28 @@ namespace AcademyPrestudies.Controllers
         public IActionResult AssignmentPage(int id)
         {
             var courseModel = assignmentrepository.GetAssignmentById(id);
-
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
             var aspNetUserId = _userManager.GetUserId(User);
-
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
+            var finishedId = assignmentrepository.GetCourseFinishedId(userId, courseModel.Id);
+            var instructions = assignmentrepository.GetInstructions(courseModel.Id);
+            var solutions = assignmentrepository.GetSolutions(courseModel.Id);
+            var tipinfo = assignmentrepository.GetTipInfos(courseModel.Id);
+            var urls = assignmentrepository.GetUrls(courseModel.Id);
+            var linkinfos = assignmentrepository.GetLinkInfos(courseModel.Id);
 
-            List<string> Links = new List<string>();
-
-            Links.Add("hej");
-
-                AssignmentPageVM model = new AssignmentPageVM
+            AssignmentPageVM model = new AssignmentPageVM
             {
                 Name = courseModel.Name,
                 Description = courseModel.Description,
                 UserId = userId,
                 CourseId = courseModel.Id,
-                FinishedId = false,
-                Instruction = "instruction",
-                Solution = "solution",
-                TipInfo ="tips",
-                Url = "http",
-                LinkInfo ="Linkinfo"
-
+                FinishedId = finishedId,
+                Instructions = instructions,
+                Solutions = solutions,
+                TipInfos = tipinfo,
+                Urls = urls,
+                LinkInfos = linkinfos
             };
 
             return View(model);

@@ -41,31 +41,30 @@
                 <input type="submit" value="COURSE COMPLETED" />
             </form>
 
+            <p>Klar med @Model.Name:@Model.FinishedId</p>
 
-            <a id="link" href="#completed">Klar med uppgift? Gå vidare?</a>
+            
         </div>
 
         <div class="content">
             <h2>Uppgiftsnamn</h2>
             <h3>Kursnamn: @Model.Name</h3>
 
-            <p>@Model.Description description Länkar och information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift</p>
+            <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
             
-            <p>@Model.LinkInfo linkinfo</p>
-            <p>@Model.Url url</p>
-            <a href="#">content</a>
+            <p>Linkinfo: @Model.LinkInfos[0]</p>
+            
+            <a href="@Model.Urls[0]">Link</a>
 
 
-            <p>@Model.Instruction instruction
-                kod kod kod kod kod kod kod kod kod kod kod kodkod kod kod kod kod
-                kod kod kodkod kod kod kod kod kod kod kodkod kod kod kod kod kod kod kodkod kod
-                kod kod kod kod kod kodkod kod kod kodkod kod kod kod kod kod kod kodkod kod kod kod
-                kod kod kod kod
+            <p>
+                Instruction: @Model.Instructions[0]
+                (kod kod kod)
             </p>
 
-            <p> @Model.Solution solutionlänk till svarsalternativ eller svaret dolt</p>
+            <p> Solution: @Model.Solutions[0] (solutionlänk till svarsalternativ eller svaret dolt)</p>
 
-            <p> @Model.TipInfo tipsinfo Råd om vad man kan läsa och kolla på om man ahr svårt för uppgiften</p>
+            <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man ahr svårt för uppgiften)</p>
         </div>
     </div>
 </body>
