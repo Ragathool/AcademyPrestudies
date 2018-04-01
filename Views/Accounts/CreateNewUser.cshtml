@@ -1,36 +1,52 @@
 ﻿@model CreateNewUserVM
-
+@{
+    Layout = "";
+}
 <!DOCTYPE html>
 <html>
 <head>
-    <title> CREATE NEW USER</title>
+    <title>Skapa konto</title>
 </head>
 <body>
-    <h1>CREATE NEW USER GET</h1>
 
-    <h1>Create new user</h1>
+    <img style="position: fixed;z-index: 0;width:100%;"
+         src="~/images/outsidecurlyfemale.jpg" />
 
-    
-        <form asp-controller="Accounts" asp-action="CreateNewUser">
-            <label asp-for="FirstName"></label>
-            <input asp-for="FirstName" />
-            <span asp-validation-for="FirstName"></span>
-            <br />
-            <label asp-for="LastName"></label>
-            <input asp-for="LastName" />
-            <span asp-validation-for="LastName"></span>
-            <br />
-            <br />
-            <label asp-for="UserName"></label>
-            <input asp-for="UserName" />
-            <span asp-validation-for="UserName"></span>
-            <br />
-            <label asp-for="Password"></label>
-            <input asp-for="Password" />
-            <span asp-validation-for="Password"></span>
-            <br />
+    <div class="login-page">
+        <div class="form">
+            <img width="200" src="~/Images/academy_prestudies_logo_w_tag_RGB.jpg" />
 
-    <input type="submit" value="Register" />
-    </form>
+            <form class="login-form" asp-controller="Accounts" asp-action="CreateNewUser">
+                <label style="font-weight:bold" asp-for="FirstName">Förnamn</label>
+                <input placeholder="Förnamn" asp-for="FirstName" />
+                <span asp-validation-for="FirstName"></span>
+                <br />
+                <br />
+                <label style="font-weight:bold" asp-for="LastName">Efternamn</label>
+                <input placeholder="Efternamn" asp-for="LastName" />
+                <span asp-validation-for="LastName"></span>
+                <br />
+                <br />
+                <label style="font-weight:bold" asp-for="UserName">Användarnamn</label>
+                <input placeholder="Användarnamn" asp-for="UserName" />
+                <span asp-validation-for="UserName"></span>
+                <br />
+                <br />
+                <label style="font-weight:bold" asp-for="Password">Lösenord</label>
+                <input placeholder="Lösenord" asp-for="Password" />
+                <span asp-validation-for="Password"></span>
+                <br />
+                <br />
+                <button type="submit">Skapa Konto</button>
+            </form>
+            <p type="submit" class="message">Redan registrerad? <a href="/LogIn/">Logga in här</a></p>
+
+        </div>
+    </div>
+
+    <link href="~/Styles/LogIn.css" rel="stylesheet" />
+    <script src="~/js/LogIn.js"></script>
 </body>
 </html>
+
+

@@ -1,0 +1,36 @@
+﻿@model LogInVM
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Log In</title>
+</head>
+<body>
+
+    <img style="position: fixed;z-index: 0;width:100%"
+         src="~/images/outsidecurlyfemale.jpg" />
+    <div style=" position:fixed;
+    top: 30%;
+    left: 40%;
+    color:white;">
+        <img style="position:sticky;width:200px;z-index: 1;" src="~/images/academy_prestudies_logo_w_tag_RGB.png" />
+        <form asp-controller="Accounts" asp-action="Login" @*asp-route-returnUrl="@Model.ReturnUrl" *@>
+            <label asp-for="Name"></label>
+            <input asp-for="Name" />
+            <span asp-validation-for="Name"></span>
+            <br />
+            <label asp-for="Password"></label>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+            <br />
+            <input type="submit" value="Login" />
+        </form>
+        <form asp-controller="Accounts" asp-action="CreateNewUser" method="Get">
+            <input type="submit" value="Create User" float="right" />
+        </form>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" />
+</body>
+</html>
