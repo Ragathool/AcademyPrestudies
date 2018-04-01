@@ -9,8 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="styleSheet" type="text/css" href="/StyleSheet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="~/Styles/prettify.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/prettify.js"></script>
     <style>
     </style>
 </head>
@@ -66,21 +68,29 @@
             <h3>Kursnamn: @Model.Name</h3>
 
             <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
-            
+
             <p>Linkinfo: @Model.LinkInfos[0]</p>
-            
+
             <a href="@Model.Urls[0]">Link</a>
 
 
             <p>
                 Instruction: @Model.Instructions[0]
-                (kod kod kod)
             </p>
+                
+            
+            <div class="code">
+                <span class="ReferenceType">string</span>&nbsp;str&nbsp;=&nbsp;<span class="String">"Hi"</span>;
+            </div>
+
 
             <p> Solution: @Model.Solutions[0] (solutionlänk till svarsalternativ eller svaret dolt)</p>
 
             <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man ahr svårt för uppgiften)</p>
         </div>
     </div>
+    <script>
+        prettyPrint();
+    </script>
 </body>
 </html>
