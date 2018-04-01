@@ -1,23 +1,59 @@
-﻿@model CourseFrontPageVM[]
+﻿@model CourseFrontPageVM
 <!DOCTYPE html>
 <html>
 <head>
-    <title> Page 1</title>
+    <title> CourseFrontPage </title>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="styleSheet" type="text/css" href="/StyleSheet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+    </style>
 </head>
 <body>
-    <h1>Page 1</h1>
+    
 
-    <ul>
+    <div class="navlogo">
+        <a id="pic" href="#">
+            <img src="~/Images/academy_logo_w_tag_RGB.png" width="255" height="105">
+        </a>
 
-        @foreach (var item in Model)
-         {
-            <li>
+        <ul class="nav">
+
+
+            <li><a class="active" href="#home">Tillbaka</a></li>
+            <li><a href="#news">Lärare</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#about">Något mer</a></li>
+
+            
+
+            @foreach (var item in Model.Courses)
+    {
+        <li>
             <a href="AssignmentPage/@item.Id">@item.Name</a>
-            </li>
-         }
+        </li>
+}
+        </ul>
+        <div />
 
-    </ul>
+        <div class="banner">
+            <p>Välkommen: @Model.UserName</p>
+            <p>Du är klar med @Model.ProgressbarValue % av förstudierna</p>
+            <progress max="100" value="@Model.ProgressbarValue">
+            </progress>
+            
 
 
+        </div>
+
+        <div class="content">
+            <h1>CourseFrontPage</h1>
+        </div>
+    </div>
 </body>
 </html>

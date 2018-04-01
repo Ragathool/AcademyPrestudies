@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using AcademyPrestudies.Models;
+using AcademyPrestudies.Models.Entities;
 using AcademyPrestudies.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -33,8 +34,24 @@ namespace AcademyPrestudies.Controllers
         [HttpGet]
         public IActionResult CourseFrontPage(CourseFrontPageVM model)
         {
-            CourseFrontPageVM[] courseArray = assignmentrepository.GetAllAssignments();
-            return View(courseArray);
+
+            List<Courses> courses = assignmentrepository.GetAllAssignments();
+            model.Courses = courses;
+
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            var aspNetUserId = _userManager.GetUserId(User);
+            var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
+            var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
+            var finishedcourses = assignmentrepository.GetFinishedCourses(userId);
+            var progressbar = (double)finishedcourses / (double)courses.Count;
+            var progressbarpercent = progressbar * 100;
+
+            model.UserId = userId;
+            model.UserName = username;
+
+            model.ProgressbarValue = progressbarpercent; 
+
+            return View(model);
         }
 
         [HttpGet]
@@ -72,8 +89,8 @@ namespace AcademyPrestudies.Controllers
         [HttpPost]
         public IActionResult AssignmentPage(AssignmentPageVM model)
         {
-            assignmentrepository.AssignmentCompleted(model);
-            return View(model);
+            var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
+            return View(statusChangedModel);
         }
 
 

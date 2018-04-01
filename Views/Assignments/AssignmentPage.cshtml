@@ -23,9 +23,9 @@
         <ul class="nav">
 
             <li><a class="active" href="#home">Tillbaka</a></li>
-            <li><a href="#news">Lärare</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-            <li><a href="#about">Något mer</a></li>
+            <li><a href="#news">Uppgift 1</a></li>
+            <li><a href="#contact">Uppgift 2</a></li>
+            <li><a href="#about">Uppgift 3</a></li>
         </ul>
         <div />
 
@@ -33,12 +33,28 @@
 
             <form asp-controller="Assignments" asp-action="AssignmentPage">
 
-                @Html.HiddenFor(x => x.UserId)
-                @Html.HiddenFor(y => y.CourseId)
-                @Html.HiddenFor(z => z.FinishedId)
-                @Html.HiddenFor(u => u.Description)
+                @Html.HiddenFor(u => u.UserId)
+                @Html.HiddenFor(c => c.CourseId)
+                @Html.HiddenFor(n => n.Name)
+                @Html.HiddenFor(d => d.Description)
+                @Html.HiddenFor(l => l.LinkInfos[0])
+                @Html.HiddenFor(url => url.Urls[0])
+                @Html.HiddenFor(i => i.Instructions[0])
+                @Html.HiddenFor(s => s.Solutions[0])
+                @Html.HiddenFor(t => t.TipInfos[0])
 
-                <input type="submit" value="COURSE COMPLETED" />
+
+                @if (Model.FinishedId == true)
+                { 
+                    <button type="submit"><img width="20" src="~/Images/redo.png"></button>
+                    <p> Gör om uppgiften </p>
+                }
+                else
+                {
+                    <button type="submit"><img width="20" src="~/Images/completed.png"></button>
+                    <p> Gör klart uppgiften </p>
+                }
+
             </form>
 
             <p>Klar med @Model.Name:@Model.FinishedId</p>
@@ -47,7 +63,6 @@
         </div>
 
         <div class="content">
-            <h2>Uppgiftsnamn</h2>
             <h3>Kursnamn: @Model.Name</h3>
 
             <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>

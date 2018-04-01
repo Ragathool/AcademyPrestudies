@@ -17,30 +17,45 @@ namespace AcademyPrestudies.Models
         }
 
 
-        public void AssignmentCompleted(AssignmentPageVM model)
+        public AssignmentPageVM AssignmentCompleted(AssignmentPageVM model)
         {
 
 
             var a = context.CourseProgress.FirstOrDefault
                     (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
 
-            a.FinishedId = true;
+            if (a.FinishedId == true)
+            {
+                a.FinishedId = false;
+            }
+            else
+            {
+                a.FinishedId = true;
+            }
 
             context.CourseProgress.Update(a);
             context.SaveChanges();
+
+            AssignmentPageVM b = new AssignmentPageVM();
+
+            b = model;
+            b.FinishedId = a.FinishedId;
+
+            return b;
+
         }
 
-        internal CourseFrontPageVM[] GetAllAssignments()
+        internal List<Courses> GetAllAssignments()
         {
             var a = context.Courses.Select
-                    (c => new CourseFrontPageVM
+                    (c => new Courses
                     {
                         Id = c.Id,
                         Name = c.Name,
                         Description = c.Description
                     })
                     .OrderBy(c => c.Name)
-                    .ToArray();
+                    .ToList();
 
             return a;
         }
@@ -52,11 +67,27 @@ namespace AcademyPrestudies.Models
             return a;
         }
 
+        internal int GetFinishedCourses(int userId)
+        {
+            var a = context.CourseProgress.Where
+                    (x => x.FinishedId == true && x.UserId == userId).ToList();
+
+            return a.Count;
+        }
+
         internal int GetUserIdByAspNetId(string id)
         {
             var a = context.Users.FirstOrDefault
                     (x => x.AspNetUserId == id);
             var usersId = a.Id;
+            return usersId;
+        }
+
+        internal string GetUserNameByAspNetId(string id)
+        {
+            var a = context.Users.FirstOrDefault
+                    (x => x.AspNetUserId == id);
+            var usersId = a.FirstName + a.LastName;
             return usersId;
         }
 
