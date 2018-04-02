@@ -17,10 +17,11 @@
 <body>
     
 
-    <div class="navlogo">
-        <a id="pic" href="#">
+    <div class="header">
+        <a href="#">
             <img src="~/Images/academy_logo_w_tag_RGB.png" width="255" height="105">
         </a>
+    </div>
 
         <ul class="nav">
 
@@ -39,21 +40,17 @@
         </li>
 }
         </ul>
-        <div />
 
         <div class="banner">
-            <p>Välkommen: @Model.UserName</p>
-            <p>Du är klar med @Model.ProgressbarValue % av förstudierna</p>
-            <progress max="100" value="@Model.ProgressbarValue">
-            </progress>
+            <p>Välkommen: @Model.UserName, du är klar med @Model.ProgressbarValue % av förstudierna</p>
+            @*<p>Du är klar med @Model.ProgressbarValue % av förstudierna</p>*@
+            <progress max="100" value="@Model.ProgressbarValue"></progress>
             
-
-
         </div>
 
         <div class="content">
             <h1>CourseFrontPage</h1>
         </div>
-    </div>
+    
 </body>
 </html>

@@ -2,6 +2,17 @@
     margin: 0%;
 }
 
+.header {
+    background-color: white;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 105px;
+    width: 100%;
+}
+
 .img {
     width: 100%;
 }
@@ -9,13 +20,19 @@
 .banner {
     margin-left: 25%;
     margin-bottom: 0;
+    margin-top: 105px;
     padding: 7px;
-    height: auto;
+    height: 105px;
     background-color: #4CAF50;
+    position: fixed;
+    top: 0px;
+    right: 0;
+    width: 75%;
 }
 
 .content {
     margin-left: 25%;
+    margin-top: 210px;
     padding: 1px 16px;
     height: 1000px;
 }
@@ -31,11 +48,15 @@
 .nav {
     list-style-type: none;
     padding: 0;
+    margin: 0;
     width: 25%;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
     overflow: auto;
+    overflow-x: hidden;
+    z-index: 1;
+    top: 105px;
 }
 
 li a {
@@ -61,3 +82,14 @@ li a {
     margin-left: 35%;
 }
 
+#solutionone{
+    display:none;
+}
+
+#solutiontwo {
+    display: none;
+}
+
+#solutionthree {
+    display: none;
+}

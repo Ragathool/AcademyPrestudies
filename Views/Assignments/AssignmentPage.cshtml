@@ -7,90 +7,94 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="styleSheet" type="text/css" href="/StyleSheet.css" />
+    <link rel="styleSheet" type="text/css" href="~/Styles/StyleSheet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="~/Styles/prettify.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/Scripts/prettify.js"></script>
+    <script src="~/js/AssignmentPage.js"></script>
     <style>
     </style>
 </head>
 <body>
-    <div class="navlogo">
-        <a id="pic" href="#">
-            <img src="~/Images/academy_logo_w_tag_RGB.png"  width="255" height="105">
+    <div class="header">
+        <a href="#">
+            <img src="~/Images/academy_logo_w_tag_RGB.png" width="255" height="105">
         </a>
-
-        <ul class="nav">
-
-            <li><a class="active" href="#home">Tillbaka</a></li>
-            <li><a href="#news">Uppgift 1</a></li>
-            <li><a href="#contact">Uppgift 2</a></li>
-            <li><a href="#about">Uppgift 3</a></li>
-        </ul>
-        <div />
-
-        <div class="banner">
-
-            <form asp-controller="Assignments" asp-action="AssignmentPage">
-
-                @Html.HiddenFor(u => u.UserId)
-                @Html.HiddenFor(c => c.CourseId)
-                @Html.HiddenFor(n => n.Name)
-                @Html.HiddenFor(d => d.Description)
-                @Html.HiddenFor(l => l.LinkInfos[0])
-                @Html.HiddenFor(url => url.Urls[0])
-                @Html.HiddenFor(i => i.Instructions[0])
-                @Html.HiddenFor(s => s.Solutions[0])
-                @Html.HiddenFor(t => t.TipInfos[0])
-
-
-                @if (Model.FinishedId == true)
-                { 
-                    <button type="submit"><img width="20" src="~/Images/redo.png"></button>
-                    <p> Gör om uppgiften </p>
-                }
-                else
-                {
-                    <button type="submit"><img width="20" src="~/Images/completed.png"></button>
-                    <p> Gör klart uppgiften </p>
-                }
-
-            </form>
-
-            <p>Klar med @Model.Name:@Model.FinishedId</p>
-
-            
-        </div>
-
-        <div class="content">
-            <h3>Kursnamn: @Model.Name</h3>
-
-            <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
-
-            <p>Linkinfo: @Model.LinkInfos[0]</p>
-
-            <a href="@Model.Urls[0]">Link</a>
-
-
-            <p>
-                Instruction: @Model.Instructions[0]
-            </p>
-                
-            
-            <pre class="prettyprint">
-                string teststring = "Academy";
-            </pre>
-
-
-            <p> Solution: @Model.Solutions[0] (solutionlänk till svarsalternativ eller svaret dolt)</p>
-
-            <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man ahr svårt för uppgiften)</p>
-        </div>
     </div>
-    <script>
-        prettyPrint();
-    </script>
+     <ul class="nav">
+         <li><a class="active" href="#home">Tillbaka</a></li>
+         <li><a href="#news">Uppgift 1</a></li>
+         <li><a href="#contact">Uppgift 2</a></li>
+         <li><a href="#about">Uppgift 3</a></li>
+     </ul>
+        
+     <div class="banner">
+
+         <form asp-controller="Assignments" asp-action="AssignmentPage">
+
+             @Html.HiddenFor(u => u.UserId)
+             @Html.HiddenFor(c => c.CourseId)
+             @Html.HiddenFor(n => n.Name)
+             @Html.HiddenFor(d => d.Description)
+             @Html.HiddenFor(l => l.LinkInfos[0])
+             @Html.HiddenFor(url => url.Urls[0])
+             @Html.HiddenFor(i => i.Instructions[0])
+             @Html.HiddenFor(s => s.Solutions[0])
+             @Html.HiddenFor(t => t.TipInfos[0])
+
+
+             @if (Model.FinishedId == true)
+             { 
+                 <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+             }
+             else
+             {
+                 <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+             }
+
+         </form>
+
+         <p>Klar med @Model.Name:@Model.FinishedId</p>
+
+     </div>
+
+     <div class="content">
+         <h3>Kapitel: @Model.Name</h3>
+
+         <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
+
+         <p>Linkinfo: @Model.LinkInfos[0]</p>
+
+         <a href="@Model.Urls[0]">Link</a>
+
+         <p>Instruction: @Model.Instructions[0]</p>
+
+         <pre class="prettyprint">
+             string teststring = "Academy";
+         </pre>
+
+         <p> Solution: @Model.Solutions[0] (solutionlänk till svarsalternativ eller svaret dolt)</p>
+         <div>
+             <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
+             <p id="solutionone">Här ska vi väl ha hjälp nummer ett tänker jag.</p>
+         </div>
+         <div>
+             <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
+             <p id="solutiontwo">Här kommer nummer två om man skulle känna behov av det.</p>
+         </div>
+         <div>
+             <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
+             <p id="solutionthree">Är du som mig behöver du säkert en tredje hjälp också.</p>
+         </div>
+
+         <div>
+             <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
+         </div>
+    </div>
+         <script>
+             prettyPrint();
+         </script>
 </body>
 </html>
