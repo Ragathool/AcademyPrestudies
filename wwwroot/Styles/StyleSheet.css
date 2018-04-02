@@ -59,6 +59,18 @@
     top: 105px;
 }
 
+#debug {
+    padding: 0px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
 li a {
     display: block;
     color: #000;
@@ -93,3 +105,28 @@ li a {
 #solutionthree {
     display: none;
 }
+
+#btnsolutionone{
+    width:450px;
+    margin-bottom:15px;
+}
+
+#btnsolutiontwo {
+    width: 450px;
+    margin-bottom: 15px;
+}
+
+#btnsolutionthree {
+    width: 450px;
+    margin-bottom: 15px;
+}
+
+.rcorners1 {
+    border-radius: 10px;
+    background-color: #4CAF50;
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 2px 3px #3c763d;
+}
+

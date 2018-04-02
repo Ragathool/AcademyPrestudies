@@ -23,13 +23,15 @@
             <img src="~/Images/academy_logo_w_tag_RGB.png" width="255" height="105">
         </a>
     </div>
-     <ul class="nav">
-         <li><a class="active" href="#home">Tillbaka</a></li>
-         <li><a href="#news">Uppgift 1</a></li>
-         <li><a href="#contact">Uppgift 2</a></li>
-         <li><a href="#about">Uppgift 3</a></li>
-     </ul>
-        
+    <div>
+        <ul class="nav">
+            <li><a class="active" href="#home">Tillbaka</a></li>
+            <li><a href="#news">Uppgift 1</a></li>
+            <li><a href="#contact">Uppgift 2</a></li>
+            <li><a href="#about">Uppgift 3</a></li>
+            <li><a href="https://www.youtube.com/watch?v=sN88nACaNXE">Debug</a></li>
+        </ul>
+    </div>
      <div class="banner">
 
          <form asp-controller="Assignments" asp-action="AssignmentPage">
@@ -63,13 +65,19 @@
      <div class="content">
          <h3>Kapitel: @Model.Name</h3>
 
-         <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
+         <div>
+             <p class="rcorners1">Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
+         </div>
 
-         <p>Linkinfo: @Model.LinkInfos[0]</p>
+         <div>
+             <p>Linkinfo: @Model.LinkInfos[0]</p>
 
-         <a href="@Model.Urls[0]">Link</a>
+             <a href="@Model.Urls[0]">Link</a>
+         </div>
 
-         <p>Instruction: @Model.Instructions[0]</p>
+         <div>
+             <p>Instruction: @Model.Instructions[0]</p>
+         </div>
 
          <pre class="prettyprint">
              string teststring = "Academy";
@@ -88,11 +96,12 @@
              <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
              <p id="solutionthree">Är du som mig behöver du säkert en tredje hjälp också.</p>
          </div>
-
+         <br />
+         <br />
          <div>
-             <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
+             <p class="rcorners1"> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
          </div>
-    </div>
+     </div>
          <script>
              prettyPrint();
          </script>
