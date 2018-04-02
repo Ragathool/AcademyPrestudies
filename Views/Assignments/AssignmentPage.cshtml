@@ -1,7 +1,10 @@
 ﻿@model AssignmentPageVM
 <!DOCTYPE html>
 <html>
-<head>
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon"
+          type="image/png"
+          href="~/Images/icons/academyfavicon.png">
     <title>AssignmentPage</title>
 
 
@@ -71,7 +74,7 @@
 
             <p>Linkinfo: @Model.LinkInfos[0]</p>
 
-            <a href="@Model.Urls[0]">Link</a>
+            <a href="http://@Model.Urls[0]">Link</a>
 
 
             <p>

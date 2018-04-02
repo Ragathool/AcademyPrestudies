@@ -87,7 +87,7 @@ namespace AcademyPrestudies.Models
         {
             var a = context.Users.FirstOrDefault
                     (x => x.AspNetUserId == id);
-            var usersId = a.FirstName + a.LastName;
+            var usersId = a.FirstName + " " + a.LastName;
             return usersId;
         }
 
