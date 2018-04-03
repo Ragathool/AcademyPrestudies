@@ -7,6 +7,7 @@ namespace AcademyPrestudies.Models.Entities
     {
         public Courses()
         {
+            Exercise = new HashSet<Exercise>();
             Links = new HashSet<Links>();
         }
 
@@ -14,6 +15,7 @@ namespace AcademyPrestudies.Models.Entities
         public string Name { get; set; }
         public string Description { get; set; }
 
+        public ICollection<Exercise> Exercise { get; set; }
         public ICollection<Links> Links { get; set; }
     }
 }

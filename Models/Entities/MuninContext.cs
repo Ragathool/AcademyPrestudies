@@ -41,6 +41,12 @@ namespace AcademyPrestudies.Models.Entities
                 entity.ToTable("Exercise", "pre");
 
                 entity.Property(e => e.Instruction).HasMaxLength(100);
+
+                entity.HasOne(d => d.Course)
+                    .WithMany(p => p.Exercise)
+                    .HasForeignKey(d => d.CourseId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Exercise_Courses");
             });
 
             modelBuilder.Entity<Links>(entity =>

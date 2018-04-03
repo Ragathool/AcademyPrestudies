@@ -29,81 +29,96 @@
             <li><a href="#news">Uppgift 1</a></li>
             <li><a href="#contact">Uppgift 2</a></li>
             <li><a href="#about">Uppgift 3</a></li>
-            <li><a href="https://www.youtube.com/watch?v=sN88nACaNXE">Debug</a></li>
+            <li><a href="https://www.youtube.com/watch?v=sN88nACaNXE" target="_blank">Debug</a></li>
         </ul>
     </div>
-     <div class="banner">
+    <div class="banner">
 
-         <form asp-controller="Assignments" asp-action="AssignmentPage">
+        <form asp-controller="Assignments" asp-action="AssignmentPage">
 
-             @Html.HiddenFor(u => u.UserId)
-             @Html.HiddenFor(c => c.CourseId)
-             @Html.HiddenFor(n => n.Name)
-             @Html.HiddenFor(d => d.Description)
-             @Html.HiddenFor(l => l.LinkInfos[0])
-             @Html.HiddenFor(url => url.Urls[0])
-             @Html.HiddenFor(i => i.Instructions[0])
-             @Html.HiddenFor(s => s.Solutions[0])
-             @Html.HiddenFor(t => t.TipInfos[0])
+            @Html.HiddenFor(u => u.UserId)
+            @Html.HiddenFor(c => c.CourseId)
+            @Html.HiddenFor(n => n.Name)
+            @Html.HiddenFor(d => d.Description)
+            @Html.HiddenFor(l => l.LinkInfos[0])
+            @Html.HiddenFor(url => url.Urls[0])
+            @Html.HiddenFor(i => i.Instructions[0])
+            @Html.HiddenFor(s => s.Solutions[0])
+            @Html.HiddenFor(t => t.TipInfos[0])
 
 
-             @if (Model.FinishedId == true)
-             { 
-                 <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
-             }
-             else
-             {
-                 <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
-             }
+            @if (Model.FinishedId == true)
+            {
+                <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+            }
+            else
+            {
+                <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+            }
 
-         </form>
+        </form>
 
-         <p>Klar med @Model.Name:@Model.FinishedId</p>
+        <p>Klar med @Model.Name:@Model.FinishedId</p>
 
-     </div>
+    </div>
 
-     <div class="content">
-         <h3>Kapitel: @Model.Name</h3>
+    <div class="content">
+        <h3>Kapitel: @Model.Name</h3>
 
-         <div>
-             <p class="rcorners1">Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
-         </div>
+        <div class="rcorners1">
+            <p >Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
+            <a id="link" href="https://mva.microsoft.com/sv-se/training-courses/grundlggande-programmering-8698?l=fyp5owH1_7204984382" target="_blank">Videokurs: Variabler</a>
+        </div>
 
-         <div>
-             <p>Linkinfo: @Model.LinkInfos[0]</p>
+        <br />
 
-             <a href="@Model.Urls[0]">Link</a>
-         </div>
+        <div>
+            <p>Instruction: @Model.Instructions[0]</p>
+        </div>
 
-         <div>
-             <p>Instruction: @Model.Instructions[0]</p>
-         </div>
+        <div>
+            <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
+            <div id="solutionone">
+                <pre class="prettyprint">
+                @Model.Solutions[0]
+                </pre>
+            </div>
+        </div>
+        <div>
+            <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
+            <div id="solutiontwo">
+                <pre class="prettyprint">
+                @Model.Solutions[1]
+                </pre>
+            </div>
+        </div>
+        <div>
+            <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
+            <div id="solutionthree">
+                <pre class="prettyprint">
+                @Model.Solutions[2]
+                </pre>
+            </div>
+        </div>
+        <br />
+        <br />
+        <div>
+            <p class="rcorners1"> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
+            <div>
 
-         <pre class="prettyprint">
-             string teststring = "Academy";
-         </pre>
+                <a href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>
 
-         <p> Solution: @Model.Solutions[0] (solutionlänk till svarsalternativ eller svaret dolt)</p>
-         <div>
-             <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
-             <p id="solutionone">Här ska vi väl ha hjälp nummer ett tänker jag.</p>
-         </div>
-         <div>
-             <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
-             <p id="solutiontwo">Här kommer nummer två om man skulle känna behov av det.</p>
-         </div>
-         <div>
-             <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
-             <p id="solutionthree">Är du som mig behöver du säkert en tredje hjälp också.</p>
-         </div>
-         <br />
-         <br />
-         <div>
-             <p class="rcorners1"> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
-         </div>
-     </div>
-         <script>
-             prettyPrint();
-         </script>
+                <br />
+
+                <a href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <script>
+        prettyPrint();
+    </script>
 </body>
 </html>

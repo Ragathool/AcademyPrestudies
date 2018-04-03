@@ -102,7 +102,7 @@ namespace AcademyPrestudies.Models
         internal List<string> GetSolutions(int id)
         {
             var exercises = context.Exercise.Where
-                    (x => x.Id == id).ToList();
+                    (x => x.CourseId == id).ToList();
 
             var b = new List<string>();
             for (int i = 0; i < exercises.Count; i++)
@@ -128,7 +128,7 @@ namespace AcademyPrestudies.Models
         internal List<string> GetUrls(int id)
         {
             var urls = context.Links.Where
-                    (x => x.Id == id).ToList();
+                    (x => x.CourseId == id).ToList();
 
             var b = new List<string>();
             for (int i = 0; i < urls.Count; i++)
