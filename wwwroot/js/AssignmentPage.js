@@ -23,6 +23,6 @@ $(document).ready(function () {
 //});
 
 
-function debugLink() {
-    window.open("https://www.youtube.com/watch?v=sN88nACaNXE");
-}
+//function debugLink() {
+//    window.open("https://www.youtube.com/watch?v=sN88nACaNXE");
+//}
