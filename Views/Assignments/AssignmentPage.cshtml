@@ -41,20 +41,25 @@
             @Html.HiddenFor(n => n.Name)
             @Html.HiddenFor(d => d.Description)
             @Html.HiddenFor(l => l.LinkInfos[0])
+            @Html.HiddenFor(l => l.LinkInfos[1])
             @Html.HiddenFor(url => url.Urls[0])
+            @Html.HiddenFor(url => url.Urls[1])
             @Html.HiddenFor(i => i.Instructions[0])
             @Html.HiddenFor(s => s.Solutions[0])
+            @Html.HiddenFor(s => s.Solutions[1])
+            @Html.HiddenFor(s => s.Solutions[2])
             @Html.HiddenFor(t => t.TipInfos[0])
 
 
+
             @if (Model.FinishedId == true)
-            {
-                <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
-            }
-            else
-            {
-                <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
-            }
+    {
+        <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+}
+else
+{
+        <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+}
 
         </form>
 
