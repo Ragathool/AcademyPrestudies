@@ -80,12 +80,7 @@ namespace AcademyPrestudies.Controllers
                 await accountrepository.AddUser(model);
                 return RedirectToAction(nameof(AccountsController.LogIn), "Accounts");
             }
-
-            
         }
-
-
-
     }
 
-   }
+}

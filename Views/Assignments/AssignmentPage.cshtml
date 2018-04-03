@@ -71,7 +71,7 @@
                 <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
             }
             else
-            {
+            {   
                 <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
             }
 
@@ -129,19 +129,21 @@
         <br />
         <br />
         <div>
-            <p class="rcorners1"> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
-            <div>
+            <div class="rcorners1">
+                <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
 
-                <a href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>
-
+                @*<a href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>*@
+                <input class="linkbtn" type="button" value="@Model.LinkInfos[0]" onclick="location.href = '@Model.Urls[0]'" target="_blank" />
                 <br />
-
-                <a href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
+                <input class="linkbtn" type="button" value="@Model.LinkInfos[1]" onclick="location.href = '@Model.Urls[1]'" target="_blank" />
+                @*<a href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>*@
             </div>
         </div>
-
+        <br />
+        <input type="button" value="Debugvideo" onclick="location.href = 'https://www.youtube.com/watch?v=sN88nACaNXE'" target="_blank"/>
+        @*<button onclick="debugLink()">Debugvideo</button>*@
+        @*<input class="linkbtn" id="btndebug" type="button" value="Debugvideo" />*@
     </div>
-
 
     <script>
         prettyPrint();

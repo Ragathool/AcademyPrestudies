@@ -15,3 +15,14 @@ $(document).ready(function () {
         $("#solutionthree").toggle(600);
     });
 });
+
+//$(document).ready(function () {
+//    $("#btndebug").click(function () {
+//        document.location = "https://www.youtube.com/watch?v=sN88nACaNXE".attr('target', '_blank');
+//    });
+//});
+
+
+function debugLink() {
+    window.open("https://www.youtube.com/watch?v=sN88nACaNXE");
+}
