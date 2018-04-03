@@ -29,20 +29,17 @@
 
         <ul class="nav">
 
-
             <li><a class="active" href="#home">Tillbaka</a></li>
             <li><a href="#news">Lärare</a></li>
             <li><a href="#contact">Kontakt</a></li>
             <li><a href="#about">Något mer</a></li>
 
-            
-
             @foreach (var item in Model.Courses)
-    {
-        <li>
-            <a href="AssignmentPage/@item.Id">@item.Name</a>
-        </li>
-}
+            {
+             <li>
+                 <a href="AssignmentPage/@item.Id">@item.Name</a>
+             </li>
+            }
         </ul>
 
         <div class="banner">

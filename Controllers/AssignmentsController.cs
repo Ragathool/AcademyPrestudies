@@ -56,24 +56,32 @@ namespace AcademyPrestudies.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult AssignmentPage(int id)
+        public IActionResult AssignmentPage(int id, CourseFrontPageVM cfpmodel)
         {
+            List<Courses> courses = assignmentrepository.GetAllAssignments();
+            cfpmodel.Courses = courses;
+
             var courseModel = assignmentrepository.GetAssignmentById(id);
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
             var aspNetUserId = _userManager.GetUserId(User);
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
+            var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
             var finishedId = assignmentrepository.GetCourseFinishedId(userId, courseModel.Id);
             var instructions = assignmentrepository.GetInstructions(courseModel.Id);
             var solutions = assignmentrepository.GetSolutions(courseModel.Id);
             var tipinfo = assignmentrepository.GetTipInfos(courseModel.Id);
             var urls = assignmentrepository.GetUrls(courseModel.Id);
             var linkinfos = assignmentrepository.GetLinkInfos(courseModel.Id);
+            var finishedcourses = assignmentrepository.GetFinishedCourses(userId);
+            var progressbar = (double)finishedcourses / (double)courses.Count;
+            var progressbarpercent = progressbar * 100;
 
             AssignmentPageVM model = new AssignmentPageVM
             {
                 Name = courseModel.Name,
                 Description = courseModel.Description,
                 UserId = userId,
+                UserName = username,
                 CourseId = courseModel.Id,
                 FinishedId = finishedId,
                 Instructions = instructions,
