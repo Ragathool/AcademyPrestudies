@@ -32,7 +32,7 @@
             <li><a href="https://www.youtube.com/watch?v=sN88nACaNXE" target="_blank">Debug</a></li>
         </ul>
     </div>
-    <div class="banner">
+    <div class="banner2">
 
         <form asp-controller="Assignments" asp-action="AssignmentPage">
 
@@ -42,47 +42,49 @@
             @Html.HiddenFor(d => d.Description)
 
             @for (int i = 0; i < Model.LinkInfos.Count; i++)
-        {
-            @Html.HiddenFor(l => l.LinkInfos[i])
-    }
+            {
+                @Html.HiddenFor(l => l.LinkInfos[i])
+            }
 
             @for (int i = 0; i < Model.Urls.Count; i++)
-        {
-            @Html.HiddenFor(l => l.Urls[i])
-    }
+            {
+                @Html.HiddenFor(l => l.Urls[i])
+            }
 
             @for (int i = 0; i < Model.Instructions.Count; i++)
-        {
-            @Html.HiddenFor(l => l.Instructions[i])
-    }
+            {
+                @Html.HiddenFor(l => l.Instructions[i])
+            }
 
             @for (int i = 0; i < Model.Solutions.Count; i++)
-        {
-            @Html.HiddenFor(l => l.Solutions[i])
-    }
+            {
+                @Html.HiddenFor(l => l.Solutions[i])
+            }
 
             @for (int i = 0; i < Model.TipInfos.Count; i++)
-        {
-            @Html.HiddenFor(l => l.TipInfos[i])
-    }
+            {
+                @Html.HiddenFor(l => l.TipInfos[i])
+            }
 
             @if (Model.FinishedId == true)
-        {
-            <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
-    }
-    else
-    {
-        <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
-}
+            {
+                <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+            }
+            else
+            {
+                <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+            }
 
         </form>
-        <div class="banner">
-            <p>Välkommen: @Model.UserName, du är klar med @Model.ProgressbarValue % av förstudierna</p>
-            @*<p>Du är klar med @Model.ProgressbarValue % av förstudierna</p>*@
-            <progress max="100" value="@Model.ProgressbarValue"></progress>
 
-        </div>
         <p>Klar med @Model.Name:@Model.FinishedId</p>
+
+    </div>
+
+    <div class="banner">
+        <p>Välkommen: @Model.UserName, du är klar med @Model.ProgressbarValue % av förstudierna.</p>
+        @*<p>Du är klar med @Model.ProgressbarValue % av förstudierna</p>*@
+        <progress id="prog" max="100" value="@Model.ProgressbarValue"></progress>
 
     </div>
 
@@ -90,7 +92,7 @@
         <h3>Kapitel: @Model.Name</h3>
 
         <div class="rcorners1">
-            <p >Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
+            <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
             <a id="link" href="https://mva.microsoft.com/sv-se/training-courses/grundlggande-programmering-8698?l=fyp5owH1_7204984382" target="_blank">Videokurs: Variabler</a>
         </div>
 
@@ -139,7 +141,7 @@
         </div>
 
     </div>
-    
+
 
     <script>
         prettyPrint();

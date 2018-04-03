@@ -10,7 +10,7 @@
     left: 0;
     overflow: hidden;
     height: 105px;
-    width: 100%;
+    width: 25%;
 }
 
 .img {
@@ -20,14 +20,31 @@
 .banner {
     margin-left: 25%;
     margin-bottom: 0;
+    margin-top: 0;
+    padding: 7px;
+    height: 105px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+
+#prog {
+    position: fixed;
+    top: 40px;
+    right: 7px;
+}
+
+.banner2 {
+    margin-left: 25%;
+    margin-bottom: 0;
     margin-top: 105px;
     padding: 7px;
     height: 105px;
     background-color: #4CAF50;
     position: fixed;
-    top: 0px;
+    top: 0;
     right: 0;
-    width: 75%;
 }
 
 .content {
