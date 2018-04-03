@@ -19,24 +19,6 @@
     width: 100%;
 }
 
-.banner {
-    margin-left: 25%;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 7px;
-    height: 105px;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    right: 0;
-}
-
-#prog {
-    position: fixed;
-    top: 40px;
-    right: 7px;
-}
-
 .banner2 {
     margin-left: 25%;
     margin-bottom: 0;
@@ -50,6 +32,26 @@
     background: -ms-linear-gradient(51deg, rgba(0,119,42,1) 34%, rgba(0,119,45,1) 37%, rgba(0,128,128,1) 100%); /* ie10+ */
     background: linear-gradient(39deg, rgba(0,119,42,1) 34%, rgba(0,119,45,1) 37%, rgba(0,128,128,1) 100%); /* w3c */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#008080', endColorstr='#00772a',GradientType=0 ); /* ie6-9 */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+}
+
+#prog {
+    position: fixed;
+    top: 40px;
+    right: 7px;
+}
+
+.banner {
+    margin-left: 25%;
+    margin-bottom: 0;
+    margin-top: 0px;
+    padding: 7px;
+    height: 105px;
+    background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     position: fixed;
     top: 0;
