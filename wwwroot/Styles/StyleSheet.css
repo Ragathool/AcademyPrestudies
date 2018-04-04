@@ -59,7 +59,7 @@
     width: 75%;
 }
 
-.content {
+.contentgray {
     margin-left: 25%;
     margin-top: 210px;
     padding: 1px 16px;
@@ -183,12 +183,14 @@ li a {
 }
 
 .rcorners1 {
-   
-    border-radius: 10px;
-    background-color: #4CAF50;
+    margin: auto;
+    text-align-last: center;
+    border-radius: 0px;
+    background-color: white;
     padding: 20px;
-    width: 100%;
+    width: 50%;
     height: auto;
+    margin-top: 35px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 

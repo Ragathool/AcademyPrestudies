@@ -780,7 +780,7 @@ a {
     }
 }
 
-@media (min-width:993px) {
+@media (min-width:1240px) {
     .w3-modal-content {
         width: 900px
     }
