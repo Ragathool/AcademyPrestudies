@@ -24,7 +24,7 @@
 </head>
 <body>
 
-    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" id="mySidebar">
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:fixed; top:0; left:0;" id="mySidebar">
         <br>
         <div class="w3-container">
             <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
@@ -58,8 +58,8 @@
 
 
 
-    <header style="background-color:white; height:85px; margin-left:0; margin-top:0">
-        <div style="width:300px; margin-left:600px; margin-top:0px">
+    <header style="background-color:white; height:85px; margin-left:0; margin-top:0; position:fixed; top:0; right:0; width:100%;">
+        <div style="width:300px; margin-left:600px; margin-top:0px;">
 
 
             <p style="margin:0">Välkommen: @Model.UserName, du är klar med @Model.ProgressbarValue % av förstudierna</p>
@@ -69,7 +69,7 @@
 
     </header>
 
-    <span class="w3-button w3-hide-large w3-xxlarge" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <span style="margin-top:85px" class="w3-button w3-hide-large w3-xxlarge" onclick="w3_open()"><i class="fa fa-bars"></i></span>
     <div onclick="w3_close()" style="cursor:pointer; z-index:3;" title="close side menu" id="myOverlay"></div>
 
 
@@ -101,7 +101,7 @@
 
 
 
-        <div class="rcorners1">
+        <div class="firstbox">
 
             <h2> Välkommen till förstudierna för C#.</h2>
 
