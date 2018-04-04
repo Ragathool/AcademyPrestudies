@@ -34,22 +34,42 @@
                 <i class="fa fa-remove"></i>
             </a>
             <img src="~/Images/academy_prestudies_logo_w_tag_RGBbackup.jpg" style="width:300px;" />
-            <h4><b>Variabler</b></h4>
+            <h4><b>C# / Variabler</b></h4>
         </div>
+
+        <div class="w3-bar-block">
+            <a href="/Assignments/CourseFrontPage" class="w3-bar-item w3-button w3-padding"><img src="~/Images/back.png" width="20"><i class="fa-fw w3-margin-bottom"></i>&nbsp;&nbsp;&nbsp;Tillbaka</a>
+
+
+        </div>
+        <br />
         <div class="w3-bar-block">
 
             <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 1</a>
             <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 2</a>
             <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 3</a>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="w3-bar-block">
 
+            <a href="/" class="w3-bar-item w3-button w3-padding"><img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Log Out</a>
 
         </div>
 
 
-
     </nav>
 
-    
+
 
 
 
@@ -68,38 +88,38 @@
                 @Html.HiddenFor(d => d.Description)
 
                 @for (int i = 0; i < Model.LinkInfos.Count; i++)
-        {
-            @Html.HiddenFor(l => l.LinkInfos[i])
-}
+                {
+                    @Html.HiddenFor(l => l.LinkInfos[i])
+                }
 
                 @for (int i = 0; i < Model.Urls.Count; i++)
-        {
-            @Html.HiddenFor(l => l.Urls[i])
-}
+                {
+                    @Html.HiddenFor(l => l.Urls[i])
+                }
 
                 @for (int i = 0; i < Model.Instructions.Count; i++)
-        {
-            @Html.HiddenFor(l => l.Instructions[i])
-}
+                {
+                    @Html.HiddenFor(l => l.Instructions[i])
+                }
 
                 @for (int i = 0; i < Model.Solutions.Count; i++)
-        {
-            @Html.HiddenFor(l => l.Solutions[i])
-}
+                {
+                    @Html.HiddenFor(l => l.Solutions[i])
+                }
 
                 @for (int i = 0; i < Model.TipInfos.Count; i++)
-        {
-            @Html.HiddenFor(l => l.TipInfos[i])
-}
+                {
+                    @Html.HiddenFor(l => l.TipInfos[i])
+                }
 
                 @if (Model.FinishedId == true)
-        {
-            <p style="float:right;"> <button  type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
-}
-else
-{
-        <p style="float:right;"><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
-}
+                {
+                    <p style="float:right;"> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+                }
+                else
+                {
+                    <p style="float:right;"><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+                }
 
             </form>
 
@@ -117,7 +137,7 @@ else
     <div class="content">
 
         <div class="firstbox">
-            <h2>Kapitel: @Model.Name</h2>
+            <h2>@Model.Name: Uppgift 1</h2>
             <p>Description: @Model.Description  (Information om vilka kapitel i boken för förstudierna som gäller inför denna uppgift)</p>
             <a id="link" href="https://mva.microsoft.com/sv-se/training-courses/grundlggande-programmering-8698?l=fyp5owH1_7204984382" target="_blank">Videokurs: Variabler</a>
         </div>
@@ -150,24 +170,22 @@ else
             </div>
         </div>
         <div class="rcorners1">
-            <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
+            <p> Tipsinfo: @Model.TipInfos[0] </p>
         </div>
         <div class="rcorners1">
             <a class="link" href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>
         </div>
         <div class="rcorners1">
-            <a class="link" href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
 
+            <a class="link" href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
         </div>
+
         <div class="rcorners1">
             <p> Tipsinfo: @Model.TipInfos[0]  (Råd om vad man kan läsa och kolla på om man har svårt för uppgiften)</p>
         </div>
 
-
-
-
+        
     </div>
-
     <script>
         // Script to open and close sidebar
         function w3_open() {
@@ -179,8 +197,8 @@ else
             document.getElementById("mySidebar").style.display = "none";
             document.getElementById("myOverlay").style.display = "none";
         }
-        
-            prettyPrint();
+
+        prettyPrint();
     </script>
 
 </body>

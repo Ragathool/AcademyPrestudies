@@ -7,6 +7,7 @@ using AcademyPrestudies.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.AspNetCore.Authorization;
 
 namespace AcademyPrestudies.Controllers
 {
@@ -69,6 +70,15 @@ namespace AcademyPrestudies.Controllers
         }
 
         [HttpPost]
+        [Authorize]
+        public  IActionResult LogOut()
+        {
+            accountrepository.TryLogOut();
+
+            return RedirectToAction(nameof(AccountsController.LogIn), "Accounts");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> CreateNewUser(CreateNewUserVM model)
         {
             if (!ModelState.IsValid)
@@ -80,7 +90,11 @@ namespace AcademyPrestudies.Controllers
                 await accountrepository.AddUser(model);
                 return RedirectToAction(nameof(AccountsController.LogIn), "Accounts");
             }
-        }
+
+
+
+        
+    }
     }
 
 }
