@@ -94,11 +94,11 @@
 
                 @if (Model.FinishedId == true)
         {
-            <p> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+            <p style="float:right;"> <button  type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
 }
 else
 {
-        <p><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+        <p style="float:right;"><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
 }
 
             </form>
@@ -125,7 +125,7 @@ else
         <div class="rcorners1">
             Instruction: @Model.Instructions[0]
         </div>
-        <div class="rcorners1">
+        <div class="codebox">
             <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
             <div id="solutionone">
                 <pre class="prettyprint">
@@ -133,17 +133,17 @@ else
                 </pre>
             </div>
         </div>
-        <div class="rcorners1">
-            <button id="btnsolutionone">Tryck här för andra lösningsförslaget</button>
-            <div id="solutionone">
+        <div class="codebox">
+            <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
+            <div id="solutiontwo">
                 <pre class="prettyprint">
                 @Model.Solutions[1]
                 </pre>
             </div>
         </div>
-        <div class="rcorners1">
-            <button id="btnsolutionone">Tryck här för tredje lösningsförslaget</button>
-            <div id="solutionone">
+        <div class="codebox">
+            <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
+            <div id="solutionthree">
                 <pre class="prettyprint">
                 @Model.Solutions[2]
                 </pre>

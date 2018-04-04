@@ -156,12 +156,13 @@ li a {
 
 #solutiontwo {
     display: none;
-  
+    text-align: left;
+   
 }
 
 #solutionthree {
     display: none;
-  
+   
 }
 
 #btnsolutionone{
@@ -184,12 +185,24 @@ li a {
 
 .rcorners1 {
     margin: auto;
-    text-align-last: center;
+    text-align-last: center;    
     border-radius: 0px;
     background-color: white;
     padding: 20px;
     width: 50%;
     height:auto;
+    margin-top: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.codebox {
+    margin: auto;
+    text-align-last: center;
+    border-radius: 0px;
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    height: auto;
     margin-top: 35px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
