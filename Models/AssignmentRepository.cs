@@ -17,7 +17,7 @@ namespace AcademyPrestudies.Models
         }
 
 
-        public AssignmentPageVM AssignmentCompleted(AssignmentPageVM model)
+        public AssignmentPageV1VM AssignmentCompleted(AssignmentPageV1VM model)
         {
 
 
@@ -36,7 +36,7 @@ namespace AcademyPrestudies.Models
             context.CourseProgress.Update(a);
             context.SaveChanges();
 
-            AssignmentPageVM b = new AssignmentPageVM();
+            AssignmentPageV1VM b = new AssignmentPageV1VM();
 
             b = model;
             b.FinishedId = a.FinishedId;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AcademyPrestudies.Models.ViewModels
 {
-    public class AssignmentPageVM
+    public class AssignmentPageV3VM
     {
         public int Id { get; set; }
         public string Name { get; set; }
