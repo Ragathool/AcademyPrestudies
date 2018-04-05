@@ -18,8 +18,11 @@
     <link href="~/Styles/prettify.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
     <script src="~/Scripts/prettify.js"></script>
     <script src="~/js/AssignmentPage.js"></script>
     <style>
@@ -34,7 +37,7 @@
                 <i class="fa fa-remove"></i>
             </a>
             <img src="~/Images/academy_prestudies_logo_w_tag_RGBbackup.jpg" style="width:300px;" />
-            <h4><b>C# / Variabler</b></h4>
+            <h4><b>C# / @Model.Name</b></h4>
         </div>
 
         <div class="w3-bar-block">
@@ -73,10 +76,14 @@
 
 
     <header style="background-color:white; height:85px; margin-left:0; margin-top:0;position:fixed; top:0; right:0;width:100%;border-bottom:1px solid black">
-        <div style="width:300px; margin-left:600px; margin-top:0px">
+        <div style="width:50%; margin:auto; margin-top:10px">
+            <h4 style="text-align:center">Välkommen: @Model.UserName, nedan är din förstudiestatus</h4>
 
-            <p style="margin:0">Välkommen: @Model.UserName, du är klar med @Model.ProgressbarValue % av förstudierna</p>
-            <progress max="100" value="@Model.ProgressbarValue"></progress>
+            <div style="width:100%; margin:auto" class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.ProgressbarValue" aria-valuemin="0" aria-valuemax="100" style="width:@Model.ProgressbarValue%">
+                    @Model.ProgressbarValue%
+                </div>
+            </div>
         </div>
         <div>
             <form asp-controller="Assignments" asp-action="AssignmentPageV1">

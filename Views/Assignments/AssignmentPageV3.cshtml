@@ -16,9 +16,9 @@
     <link href="~/Styles/StyleSheet.css" rel="stylesheet" />
     <link href="~/Styles/ContentPages.css" rel="stylesheet" />
     <link href="~/Styles/prettify.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="~/Scripts/prettify.js"></script>
@@ -61,12 +61,14 @@
         <br />
         <br />
         <br />
-        <div class="w3-bar-block">
+        <div style="width:50%; margin:auto; margin-top:10px">
+            <h4 style="text-align:center">Välkommen: @Model.UserName, nedan är din förstudiestatus</h4>
 
-            <form class="login-form" asp-controller="Accounts" asp-action="LogOut">
-
-                <button class="w3-bar-item w3-button w3-padding" type="submit"> <img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Logga Ut</button>
-            </form>
+            <div style="width:100%; margin:auto" class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.ProgressbarValue" aria-valuemin="0" aria-valuemax="100" style="width:@Model.ProgressbarValue%">
+                    @Model.ProgressbarValue%
+                </div>
+            </div>
         </div>
     </nav>
 
