@@ -82,6 +82,14 @@ namespace AcademyPrestudies.Models
             return a.Count;
         }
 
+        public List<CourseProgress> GetFinishedCoursesProgress(int userId)
+        {
+            var a = context.CourseProgress.Where
+                    (x => x.FinishedId == true && x.UserId == userId).ToList();
+
+            return a;
+        }
+
         internal int GetUserIdByAspNetId(string id)
         {
             var a = context.Users.FirstOrDefault

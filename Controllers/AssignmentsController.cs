@@ -43,6 +43,7 @@ namespace AcademyPrestudies.Controllers
 
             List<Courses> courses = assignmentrepository.GetAllAssignments();
             model.Courses = courses;
+            
 
             System.Security.Claims.ClaimsPrincipal currentUser = this.User;
             var aspNetUserId = _userManager.GetUserId(User);
@@ -52,10 +53,15 @@ namespace AcademyPrestudies.Controllers
             var progressbar = (double)finishedcourses / (double)courses.Count;
             var progressbarpercent = progressbar * 100;
 
+            List<CourseProgress> courseProgress = assignmentrepository.GetFinishedCoursesProgress(userId);
+
+            model.CourseProgress = courseProgress;
+
             model.UserId = userId;
             model.UserName = username;
 
-            model.ProgressbarValue = progressbarpercent; 
+            model.ProgressbarValue = progressbarpercent;
+            
 
             return View(model);
         }

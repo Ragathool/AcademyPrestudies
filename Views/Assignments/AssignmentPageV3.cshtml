@@ -62,8 +62,10 @@
         <br />
         <div class="w3-bar-block">
 
-            <a href="/" class="w3-bar-item w3-button w3-padding"><img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Log Out</a>
+            <form class="login-form" asp-controller="Accounts" asp-action="LogOut">
 
+                <button class="w3-bar-item w3-button w3-padding" type="submit"> <img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Logga Ut</button>
+            </form>
         </div>
     </nav>
 
@@ -111,11 +113,11 @@
 
                 @if (Model.FinishedId == true)
                 {
-                    <p style="float:right;"> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+                    <p style="float:right;"> <button class="btnredo"  type="submit"><img width="40" src="~/Images/redo.png"></button> Gör om  </p>
                 }
                 else
                 {
-                    <p style="float:right;"><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
+                    <p style="float:right;"> <button class="btncomplete"  type="submit"><img width="45" src="~/Images/complete.png"></button> Gör klart</p>
                 }
 
             </form>
