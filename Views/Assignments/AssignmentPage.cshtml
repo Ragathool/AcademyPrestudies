@@ -148,12 +148,16 @@
 
         <div class="rcorners1">
             <h2>Uppgift 1</h2>
-            @Model.Instructions[0]
+            <p style="white-space:pre-line; text-align:left;">@Model.Instructions[0]</p>  
+            <p><strong>Förslag på hur konsolfönstret kan se ut efter lyckad programmering</strong></p>
+            <img style="width:100%;" src="~/Images/svarkonsol.PNG" />
+            <br />
+            <i>Se nedan för hjälp på vägen</i>
         </div>
         <div class="codebox">
             <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
             <div id="solutionone">
-                <pre style="white-space:pre-line" class="prettyprint">
+                <pre style="white-space:pre-line;" class="prettyprint">
                 @Model.Solutions[0]
                 </pre>
             </div>
@@ -161,7 +165,7 @@
         <div class="codebox">
             <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
             <div id="solutiontwo">
-                <pre style="white-space:pre-line" class="prettyprint">
+                <pre style="white-space:pre-line;" class="prettyprint">
                 @Model.Solutions[1]
                 </pre>
             </div>
@@ -177,15 +181,11 @@
         <div style="margin-bottom: 20px;" class="rcorners1">
             <h2>Känner du dig fortfarande osäker på Variabler?</h2>
             <p>Här finns mer information och @Model.TipInfos[0] </p>
-            <br />
-            <br />
-            <div class="h_iframe">
-                <iframe width="420" height="315" src="https://www.youtube.com/embed/QBGSEsrMUtE" frameborder="0" allowfullscreen></iframe>
-            </div>
+            <br/>
             <a class="link" href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>
-            <br />
+            <br/>  
             <a class="link" href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
-        </div>
+    </div>
     <script>
         // Script to open and close sidebar
         function w3_open() {

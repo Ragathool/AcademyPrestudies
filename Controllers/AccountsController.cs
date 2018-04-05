@@ -49,7 +49,7 @@ namespace AcademyPrestudies.Controllers
             if (!await accountrepository.TryLoginAsync(viewModel))
             {
                 // Show login error
-                ModelState.AddModelError(nameof(LogInVM.Name), "Invalid credentials");
+                ModelState.AddModelError(nameof(LogInVM.Name), "Felaktigt användarnamn eller lösenord");
                 return View(viewModel);
             }
 
@@ -65,7 +65,6 @@ namespace AcademyPrestudies.Controllers
         [HttpGet]
         public IActionResult CreateNewUser()
         {
-
             return View();
         }
 
