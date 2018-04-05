@@ -40,30 +40,30 @@
         <div class="w3-bar-block">
             <a href="/Assignments/CourseFrontPage" class="w3-bar-item w3-button w3-padding"><img src="~/Images/back.png" width="20"><i class="fa-fw w3-margin-bottom"></i>&nbsp;&nbsp;&nbsp;Tillbaka</a>
 
-
+          
         </div>
         <br />
-            <div class="w3-bar-block">
-                <a href="/Assignments/AssignmentPageV1/@Model.CourseId" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 1</a>
-                <a href="/Assignments/AssignmentPageV2/@Model.CourseId" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 2</a>
-                <a href="/Assignments/AssignmentPageV3/@Model.CourseId" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 3</a>
-            </div>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <div class="w3-bar-block">
+        <div class="w3-bar-block">
+            <a href="/Assignments/AssignmentPageV1/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 1</a>
+            <a href="/Assignments/AssignmentPageV2/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 2</a>
+            <a href="/Assignments/AssignmentPageV3/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 3</a>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="w3-bar-block">
 
-                <a href="/" class="w3-bar-item w3-button w3-padding"><img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Log Out</a>
+            <a href="/" class="w3-bar-item w3-button w3-padding"><img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Log Out</a>
 
-            </div>
+        </div>
 
 
     </nav>
@@ -113,15 +113,15 @@
                     @Html.HiddenFor(l => l.TipInfos[i])
                 }
 
-             
-                 @if (Model.FinishedId == true)
+                @if (Model.FinishedId == true)
                 {
-                    <p style="float:right;"> <button class="btnredo"  type="submit"><img width="40" src="~/Images/redo.png"></button> Gör om  </p>
+                    <p style="float:right;"> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
                 }
                 else
                 {
-                    <p style="float:right;"> <button class="btncomplete"  type="submit"><img width="45" src="~/Images/complete.png"></button> Gör klart</p>
+                    <p style="float:right;"><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
                 }
+
             </form>
 
             <p>Klar med @Model.Name:@Model.FinishedId</p>
@@ -146,7 +146,7 @@
         <div class="rcorners1">
             <h2>Uppgift 2</h2>
             <p style="white-space:pre-line; text-align:left;">
-                @Model.Instructions[1]
+                @Model.Instructions[0]
             </p>  
             <p><strong>Förslag på hur konsolfönstret kan se ut efter lyckad programmering</strong></p>
             <img style="width:100%;" src="~/Images/svarkonsol.PNG" />
