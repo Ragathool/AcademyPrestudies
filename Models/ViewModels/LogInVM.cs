@@ -10,12 +10,12 @@ namespace AcademyPrestudies.Models.ViewModels
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Användarnamn måste fyllas i")]
         public string Name { get; set; }
 
         public string ReturnUrl { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Lösenord måste fyllas i")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
     }
