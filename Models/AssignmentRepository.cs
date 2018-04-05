@@ -40,6 +40,13 @@ namespace AcademyPrestudies.Models
 
             b = model;
             b.FinishedId = a.FinishedId;
+            
+            var finished = GetFinishedCourses((b.UserId).GetValueOrDefault());
+            var courseCount = GetAllAssignments().Count;
+            var progressbar = (double)finished / (double)courseCount;
+            var progressbarpercent = progressbar * 100;
+
+            b.ProgressbarValue = progressbarpercent;
 
             return b;
 

@@ -93,6 +93,11 @@ namespace AcademyPrestudies.Models
             return result;
         }
 
+        internal void TryLogOut()
+        {
+            signInManager.SignOutAsync();
+        }
+
         private int GetAssignmentCount()
             {
             var a = context.Courses.ToList();

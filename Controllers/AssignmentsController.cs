@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
+
 namespace AcademyPrestudies.Controllers
 {
     public class AssignmentsController : Controller
@@ -18,20 +19,25 @@ namespace AcademyPrestudies.Controllers
         IMemoryCache cache;
 
         private UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _SignInManager;
+        private SignInManager<IdentityUser> _signInManager;
+         
 
         AssignmentRepository assignmentrepository;
         AccountRepository accountrepository;
 
-        public AssignmentsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository, UserManager<IdentityUser> userManager)
+        public AssignmentsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> _signInManager)
         {
             this.assignmentrepository = assignmentrepository;
             this.accountrepository = accountrepository;
             this.cache = cache;
             _userManager = userManager;
+            _SignInManager = _signInManager;
         }
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult CourseFrontPage(CourseFrontPageVM model)
         {
 
@@ -88,18 +94,22 @@ namespace AcademyPrestudies.Controllers
                 Solutions = solutions,
                 TipInfos = tipinfo,
                 Urls = urls,
-                LinkInfos = linkinfos
+                LinkInfos = linkinfos,
+                ProgressbarValue = progressbarpercent
             };
 
             return View(model);
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult AssignmentPage(AssignmentPageVM model)
         {
             var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
             return View(statusChangedModel);
         }
+
+        
 
 
     }
