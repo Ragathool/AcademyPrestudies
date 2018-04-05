@@ -229,3 +229,13 @@ li a {
     font-size: large;
     color: black;
 }
+
+.h_iframe iframe {
+    width: 100%;
+    
+}
+
+.h_iframe {
+    
+    width: 100%;
+}
