@@ -239,3 +239,22 @@ li a {
     
     width: 100%;
 }
+
+.btncomplete {
+    background-color: white;
+    display: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btnredo {
+    background-color: white;
+    display: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
