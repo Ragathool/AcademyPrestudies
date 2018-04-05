@@ -15,6 +15,7 @@ namespace AcademyPrestudies.Models.ViewModels
         [Required(ErrorMessage = "Du måste fylla i ett lösenord")]
         [DataType(DataType.Password, ErrorMessage = "Wrong format on password")]
         [StringLength(100, ErrorMessage = "Lösenordet måste bestå av minst sex tecken", MinimumLength = 6)]
+        [RegularExpression("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[*+\\/|!\"£$%^&*()#[\\]@~'?><,.=-_]).{6,}", ErrorMessage = "Lösenordet måste vara 6-20 tecken och innehålla en versal, en gemen, en siffra och ett specialtecken.")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Du måste fylla i ditt förnamn")]
