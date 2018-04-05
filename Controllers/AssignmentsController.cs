@@ -62,7 +62,7 @@ namespace AcademyPrestudies.Controllers
 
         [HttpGet]
         [Authorize]
-        public IActionResult AssignmentPage(int id, CourseFrontPageVM cfpmodel)
+        public IActionResult AssignmentPageV1(int id, CourseFrontPageVM cfpmodel)
         {
             List<Courses> courses = assignmentrepository.GetAllAssignments();
             cfpmodel.Courses = courses;
@@ -82,7 +82,7 @@ namespace AcademyPrestudies.Controllers
             var progressbar = (double)finishedcourses / (double)courses.Count;
             var progressbarpercent = progressbar * 100;
 
-            AssignmentPageVM model = new AssignmentPageVM
+            AssignmentPageV1VM model = new AssignmentPageV1VM
             {
                 Name = courseModel.Name,
                 Description = courseModel.Description,
@@ -103,13 +103,111 @@ namespace AcademyPrestudies.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult AssignmentPage(AssignmentPageVM model)
+        public IActionResult AssignmentPageV1(AssignmentPageV1VM model)
+        {
+            var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
+            return View(statusChangedModel);
+        }
+
+
+        [HttpGet]
+        [Authorize]
+        public IActionResult AssignmentPageV2(int id, CourseFrontPageVM cfpmodel)
+        {
+            List<Courses> courses = assignmentrepository.GetAllAssignments();
+            cfpmodel.Courses = courses;
+
+            var courseModel = assignmentrepository.GetAssignmentById(id);
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            var aspNetUserId = _userManager.GetUserId(User);
+            var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
+            var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
+            var finishedId = assignmentrepository.GetCourseFinishedId(userId, courseModel.Id);
+            var instructions = assignmentrepository.GetInstructions(courseModel.Id);
+            var solutions = assignmentrepository.GetSolutions(courseModel.Id);
+            var tipinfo = assignmentrepository.GetTipInfos(courseModel.Id);
+            var urls = assignmentrepository.GetUrls(courseModel.Id);
+            var linkinfos = assignmentrepository.GetLinkInfos(courseModel.Id);
+            var finishedcourses = assignmentrepository.GetFinishedCourses(userId);
+            var progressbar = (double)finishedcourses / (double)courses.Count;
+            var progressbarpercent = progressbar * 100;
+
+            AssignmentPageV2VM model = new AssignmentPageV2VM
+            {
+                Name = courseModel.Name,
+                Description = courseModel.Description,
+                UserId = userId,
+                UserName = username,
+                CourseId = courseModel.Id,
+                FinishedId = finishedId,
+                Instructions = instructions,
+                Solutions = solutions,
+                TipInfos = tipinfo,
+                Urls = urls,
+                LinkInfos = linkinfos,
+                ProgressbarValue = progressbarpercent
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult AssignmentPageV2(AssignmentPageV1VM model)
         {
             var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
             return View(statusChangedModel);
         }
 
         
+        [HttpGet]
+        [Authorize]
+        public IActionResult AssignmentPageV3(int id, CourseFrontPageVM cfpmodel)
+        {
+            List<Courses> courses = assignmentrepository.GetAllAssignments();
+            cfpmodel.Courses = courses;
+
+            var courseModel = assignmentrepository.GetAssignmentById(id);
+            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            var aspNetUserId = _userManager.GetUserId(User);
+            var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
+            var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
+            var finishedId = assignmentrepository.GetCourseFinishedId(userId, courseModel.Id);
+            var instructions = assignmentrepository.GetInstructions(courseModel.Id);
+            var solutions = assignmentrepository.GetSolutions(courseModel.Id);
+            var tipinfo = assignmentrepository.GetTipInfos(courseModel.Id);
+            var urls = assignmentrepository.GetUrls(courseModel.Id);
+            var linkinfos = assignmentrepository.GetLinkInfos(courseModel.Id);
+            var finishedcourses = assignmentrepository.GetFinishedCourses(userId);
+            var progressbar = (double)finishedcourses / (double)courses.Count;
+            var progressbarpercent = progressbar * 100;
+
+            AssignmentPageV3VM model = new AssignmentPageV3VM
+            {
+                Name = courseModel.Name,
+                Description = courseModel.Description,
+                UserId = userId,
+                UserName = username,
+                CourseId = courseModel.Id,
+                FinishedId = finishedId,
+                Instructions = instructions,
+                Solutions = solutions,
+                TipInfos = tipinfo,
+                Urls = urls,
+                LinkInfos = linkinfos,
+                ProgressbarValue = progressbarpercent
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult AssignmentPageV3(AssignmentPageV1VM model)
+        {
+            var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
+            return View(statusChangedModel);
+        }
 
 
     }

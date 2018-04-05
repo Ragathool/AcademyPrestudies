@@ -1,4 +1,4 @@
-﻿@model AssignmentPageVM
+﻿@model AssignmentPageV2VM
 
 <!DOCTYPE html>
 <html>
@@ -40,14 +40,13 @@
         <div class="w3-bar-block">
             <a href="/Assignments/CourseFrontPage" class="w3-bar-item w3-button w3-padding"><img src="~/Images/back.png" width="20"><i class="fa-fw w3-margin-bottom"></i>&nbsp;&nbsp;&nbsp;Tillbaka</a>
 
-
+          
         </div>
         <br />
         <div class="w3-bar-block">
-
-            <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 1</a>
-            <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 2</a>
-            <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 3</a>
+            <a href="/Assignments/AssignmentPageV1/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 1</a>
+            <a href="/Assignments/AssignmentPageV2/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 2</a>
+            <a href="/Assignments/AssignmentPageV3/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 3</a>
         </div>
         <br />
         <br />
@@ -80,7 +79,7 @@
             <progress max="100" value="@Model.ProgressbarValue"></progress>
         </div>
         <div>
-            <form asp-controller="Assignments" asp-action="AssignmentPage">
+            <form asp-controller="Assignments" asp-action="AssignmentPageV2">
 
                 @Html.HiddenFor(u => u.UserId)
                 @Html.HiddenFor(c => c.CourseId)
@@ -145,8 +144,10 @@
         </div>
 
         <div class="rcorners1">
-            <h2>Uppgift 1</h2>
-            <p style="white-space:pre-line; text-align:left;">@Model.Instructions[0]</p>  
+            <h2>Uppgift 2</h2>
+            <p style="white-space:pre-line; text-align:left;">
+                @Model.Instructions[0]
+            </p>  
             <p><strong>Förslag på hur konsolfönstret kan se ut efter lyckad programmering</strong></p>
             <img style="width:100%;" src="~/Images/svarkonsol.PNG" />
             <br />
@@ -156,7 +157,7 @@
             <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
             <div id="solutionone">
                 <pre style="white-space:pre-line;" class="prettyprint">
-                @Model.Solutions[0]
+                @Model.Solutions[0];	
                 </pre>
             </div>
         </div>
@@ -164,7 +165,7 @@
             <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
             <div id="solutiontwo">
                 <pre style="white-space:pre-line;" class="prettyprint">
-                @Model.Solutions[1]
+                 @Model.Solutions[1];
                 </pre>
             </div>
         </div>
@@ -172,7 +173,7 @@
             <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
             <div id="solutionthree">
                 <pre style="white-space:pre-line" class="prettyprint">
-                @Model.Solutions[2]
+                 @Model.Solutions[2];
                 </pre>
             </div>
         </div>
