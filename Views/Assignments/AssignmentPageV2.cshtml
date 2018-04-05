@@ -94,42 +94,41 @@
                 @Html.HiddenFor(p => p.ProgressbarValue)
 
                 @for (int i = 0; i < Model.LinkInfos.Count; i++)
-                {
-                    @Html.HiddenFor(l => l.LinkInfos[i])
-                }
+    {
+            @Html.HiddenFor(l => l.LinkInfos[i])
+}
 
                 @for (int i = 0; i < Model.Urls.Count; i++)
-                {
-                    @Html.HiddenFor(l => l.Urls[i])
-                }
+    {
+            @Html.HiddenFor(l => l.Urls[i])
+}
 
                 @for (int i = 0; i < Model.Instructions.Count; i++)
-                {
-                    @Html.HiddenFor(l => l.Instructions[i])
-                }
+    {
+            @Html.HiddenFor(l => l.Instructions[i])
+}
 
                 @for (int i = 0; i < Model.Solutions.Count; i++)
-                {
-                    @Html.HiddenFor(l => l.Solutions[i])
-                }
+    {
+            @Html.HiddenFor(l => l.Solutions[i])
+}
 
                 @for (int i = 0; i < Model.TipInfos.Count; i++)
-                {
-                    @Html.HiddenFor(l => l.TipInfos[i])
-                }
+    {
+            @Html.HiddenFor(l => l.TipInfos[i])
+}
 
                 @if (Model.FinishedId == true)
-                {
-                    <p style="float:right;"> <button type="submit"><img width="20" src="~/Images/redo.png"></button> Gör om uppgiften </p>
-                }
-                else
-                {
-                    <p style="float:right;"><button type="submit"><img width="20" src="~/Images/completed.png"></button> Gör klart uppgiften </p>
-                }
+    {
+            <p style="float:right;"> <button class="btncomplete" type="submit"><img width="40" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+}
+else
+{
+            <p style="float:right;"><button class="btncomplete" type="submit"><img width="45" src="~/Images/complete.png"></button> Gör klart uppgiften </p>
+}
 
             </form>
 
-            <p>Klar med @Model.Name:@Model.FinishedId</p>
         </div>
 
 
