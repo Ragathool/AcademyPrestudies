@@ -163,7 +163,7 @@ namespace AcademyPrestudies.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult AssignmentPageV2(AssignmentPageV1VM model)
+        public IActionResult AssignmentPageV2(AssignmentPageV2VM model)
         {
             var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
             return View(statusChangedModel);
@@ -215,7 +215,7 @@ namespace AcademyPrestudies.Controllers
 
         [HttpPost]
         [Authorize]
-        public IActionResult AssignmentPageV3(AssignmentPageV1VM model)
+        public IActionResult AssignmentPageV3(AssignmentPageV3VM model)
         {
             var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
             return View(statusChangedModel);

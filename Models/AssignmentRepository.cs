@@ -51,6 +51,74 @@ namespace AcademyPrestudies.Models
             return b;
 
         }
+        public AssignmentPageV2VM AssignmentCompleted(AssignmentPageV2VM model)
+        {
+
+
+            var a = context.CourseProgress.FirstOrDefault
+                    (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
+
+            if (a.FinishedId == true)
+            {
+                a.FinishedId = false;
+            }
+            else
+            {
+                a.FinishedId = true;
+            }
+
+            context.CourseProgress.Update(a);
+            context.SaveChanges();
+
+            AssignmentPageV2VM b = new AssignmentPageV2VM();
+
+            b = model;
+            b.FinishedId = a.FinishedId;
+
+            var finished = GetFinishedCourses((b.UserId).GetValueOrDefault());
+            var courseCount = GetAllAssignments().Count;
+            var progressbar = (double)finished / (double)courseCount;
+            var progressbarpercent = progressbar * 100;
+
+            b.ProgressbarValue = progressbarpercent;
+
+            return b;
+
+        }
+        public AssignmentPageV3VM AssignmentCompleted(AssignmentPageV3VM model)
+        {
+
+
+            var a = context.CourseProgress.FirstOrDefault
+                    (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
+
+            if (a.FinishedId == true)
+            {
+                a.FinishedId = false;
+            }
+            else
+            {
+                a.FinishedId = true;
+            }
+
+            context.CourseProgress.Update(a);
+            context.SaveChanges();
+
+            AssignmentPageV3VM b = new AssignmentPageV3VM();
+
+            b = model;
+            b.FinishedId = a.FinishedId;
+
+            var finished = GetFinishedCourses((b.UserId).GetValueOrDefault());
+            var courseCount = GetAllAssignments().Count;
+            var progressbar = (double)finished / (double)courseCount;
+            var progressbarpercent = progressbar * 100;
+
+            b.ProgressbarValue = progressbarpercent;
+
+            return b;
+
+        }
 
         internal List<Courses> GetAllAssignments()
         {
