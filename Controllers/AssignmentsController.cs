@@ -220,7 +220,5 @@ namespace AcademyPrestudies.Controllers
             var statusChangedModel = assignmentrepository.AssignmentCompleted(model);
             return View(statusChangedModel);
         }
-
-
     }
 }

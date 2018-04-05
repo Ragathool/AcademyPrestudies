@@ -120,12 +120,18 @@
 
                 @if (Model.FinishedId == true)
     {
-            <p style="float:right;"> <button class="btncomplete" type="submit"><img width="40" src="~/Images/redo.png"></button> Gör om uppgiften </p>
+            <div style="float:right;margin-left:20px; margin-right:45px;">
+                <span> <button class="btncomplete" type="submit"><img width="40" src="~/Images/redo.png"></button></span>
+            </div>
 }
 else
 {
-            <p style="float:right;"><button class="btncomplete" type="submit"><img width="45" src="~/Images/complete.png"></button> Gör klart uppgiften </p>
+            <div style="float:right;margin-left:20px; margin-right:45px;">
+                <span> <button class="btncomplete" type="submit"><img width="45" src="~/Images/complete.png"></button></span>
+            </div>
+           
 }
+               
 
             </form>
 
