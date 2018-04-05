@@ -151,12 +151,12 @@ else
         <div class="firstbox">
             <h2>Kapitel: @Model.Name</h2>
             <p>@Model.Description. <i>se nedan</i> </p>
-            <a id="link" href="https://mva.microsoft.com/sv-se/training-courses/grundlggande-programmering-8698?l=fyp5owH1_7204984382" target="_blank">Videokurs: Variabler</a>
+            <a class="link" href="https://mva.microsoft.com/sv-se/training-courses/grundlggande-programmering-8698?l=fyp5owH1_7204984382" target="_blank">Videokurs: Variabler</a>
         </div>
 
         <div class="rcorners1">
             <h2>Uppgift 1</h2>
-            <p style="white-space:pre-line; text-align:left;">@Model.Instructions[0]</p>  
+            <p style="white-space:pre-line; text-align:left;">@Model.Instructions[0]</p>
             <p><strong>Förslag på hur konsolfönstret kan se ut efter lyckad programmering</strong></p>
             <img style="width:100%;" src="~/Images/svarkonsol.PNG" />
             <br />
@@ -189,10 +189,11 @@ else
         <div style="margin-bottom: 20px;" class="rcorners1">
             <h2>Känner du dig fortfarande osäker på Variabler?</h2>
             <p>Här finns mer information och @Model.TipInfos[0] </p>
-            <br/>
+            <br />
             <a class="link" href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>
-            <br/>  
+            <br />
             <a class="link" href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
+        </div>
     </div>
         </div>
     <script>
