@@ -1,0 +1,214 @@
+﻿@model AssignmentPageV3VM
+
+<!DOCTYPE html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+    <link rel="icon"
+          type="image/png"
+          href="~/Images/icons/academyfavicon.png">
+
+    <title> AssignmentPage </title>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/Styles/LogIn.css" rel="stylesheet" />
+    <link href="~/Styles/StyleSheet.css" rel="stylesheet" />
+    <link href="~/Styles/ContentPages.css" rel="stylesheet" />
+    <link href="~/Styles/prettify.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/prettify.js"></script>
+    <script src="~/js/AssignmentPage.js"></script>
+    <style>
+    </style>
+</head>
+<body>
+
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-left w3-padding" style="z-index:3;width:300px;box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:fixed; top:0; left:0;" id="mySidebar">
+        <br>
+        <div class="w3-container">
+            <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+                <i class="fa fa-remove"></i>
+            </a>
+            <img src="~/Images/academy_prestudies_logo_w_tag_RGBbackup.jpg" style="width:300px;" />
+            <h4><b>C# / @Model.Name</b></h4>
+        </div>
+
+        <div class="w3-bar-block">
+            <a href="/Assignments/CourseFrontPage" class="w3-bar-item w3-button w3-padding"><img src="~/Images/back.png" width="20"><i class="fa-fw w3-margin-bottom"></i>&nbsp;&nbsp;&nbsp;Tillbaka</a>
+
+
+        </div>
+        <br />
+        <div class="w3-bar-block">
+            <a href="/Assignments/AssignmentPageV1/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 1</a>
+            <a href="/Assignments/AssignmentPageV2/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 2</a>
+            <a href="/Assignments/AssignmentPageV3/1" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover"><i class="fa fa-th-large fa-fw w3-margin-right"></i>Uppgift 3</a>
+
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div class="w3-bar-block">
+
+            <form class="login-form" asp-controller="Accounts" asp-action="LogOut">
+
+                <button class="w3-bar-item w3-button w3-padding" type="submit"> <img border="0" alt="Log Out" src="~/Images/logout.png" width="50"><i class="fa-fw w3-margin-bottom"></i>Logga Ut</button>
+            </form>
+        </div>
+    </nav>
+
+
+    <header style="background-color:white; height:85px; margin-left:0; margin-top:0;position:fixed; top:0; right:0;width:100%;border-bottom:1px solid black">
+        
+        <div style="width:50%; margin:auto; margin-top:10px">
+            <h4 style="text-align:center">Välkommen: @Model.UserName, nedan är din förstudiestatus</h4>
+
+            <div style="width:100%; margin:auto" class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.ProgressbarValue" aria-valuemin="0" aria-valuemax="100" style="width:@Model.ProgressbarValue%">
+                    @Model.ProgressbarValue%
+                </div>
+            </div>
+        </div>
+        <div>
+            <form asp-controller="Assignments" asp-action="AssignmentPageV3">
+
+                @Html.HiddenFor(u => u.UserId)
+                @Html.HiddenFor(c => c.CourseId)
+                @Html.HiddenFor(n => n.Name)
+                @Html.HiddenFor(d => d.Description)
+                @Html.HiddenFor(usr => usr.UserName)
+                @Html.HiddenFor(p => p.ProgressbarValue)
+
+                @for (int i = 0; i < Model.LinkInfos.Count; i++)
+            {
+                @Html.HiddenFor(l => l.LinkInfos[i])
+        }
+
+                @for (int i = 0; i < Model.Urls.Count; i++)
+            {
+                @Html.HiddenFor(l => l.Urls[i])
+        }
+
+                @for (int i = 0; i < Model.Instructions.Count; i++)
+            {
+                @Html.HiddenFor(l => l.Instructions[i])
+        }
+
+                @for (int i = 0; i < Model.Solutions.Count; i++)
+            {
+                @Html.HiddenFor(l => l.Solutions[i])
+        }
+
+                @for (int i = 0; i < Model.TipInfos.Count; i++)
+            {
+                @Html.HiddenFor(l => l.TipInfos[i])
+        }
+
+                @if (Model.FinishedId == true)
+            {
+                <p style="float:right;"> <button class="btnredo" type="submit"><img width="40" src="~/Images/redo.png"></button> Gör om  </p>
+        }
+        else
+        {
+            <p style="float:right;"> <button class="btncomplete" type="submit"><img width="45" src="~/Images/complete.png"></button> Gör klart</p>
+    }
+
+            </form>
+
+            <p>Klar med @Model.Name:@Model.FinishedId</p>
+        </div>
+
+
+    </header>
+
+    <span style="margin-top:85px" class="w3-button w3-hide-large w3-xxlarge" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div onclick="w3_close()" style="cursor:pointer; z-index:3;" title="close side menu" id="myOverlay"></div>
+
+
+
+    <div class="content">
+
+        <div class="firstbox">
+            <h2>Kapitel: @Model.Name</h2>
+            <p>@Model.Description. <i>se nedan</i> </p>
+            <a id="link" href="https://mva.microsoft.com/sv-se/training-courses/grundlggande-programmering-8698?l=fyp5owH1_7204984382" target="_blank">Videokurs: Variabler</a>
+        </div>
+
+        <div class="rcorners1">
+            <h2>Uppgift 3</h2>
+            <p style="white-space:pre-line; text-align:left;">@Model.Instructions[0]</p>  
+            <p><strong>Förslag på hur konsolfönstret kan se ut efter lyckad programmering</strong></p>
+            <img style="width:100%;" src="~/Images/svarkonsol.PNG" />
+            <br />
+            <i>Se nedan för hjälp på vägen</i>
+        </div>
+        <div class="codebox">
+            <button id="btnsolutionone">Tryck här för första lösningsförslaget</button>
+            <div id="solutionone">
+                <pre style="white-space:pre-line;" class="prettyprint">
+                @Model.Solutions[0]
+                </pre>
+            </div>
+        </div>
+        <div class="codebox">
+            <button id="btnsolutiontwo">Tryck här för andra lösningsförslaget</button>
+            <div id="solutiontwo">
+                <pre style="white-space:pre-line;" class="prettyprint">
+                @Model.Solutions[1]
+                </pre>
+            </div>
+        </div>
+        <div class="codebox">
+            <button id="btnsolutionthree">Tryck här för tredje lösningsförslaget</button>
+            <div id="solutionthree">
+                <pre style="white-space:pre-line" class="prettyprint">
+                @Model.Solutions[2]
+                </pre>
+            </div>
+        </div>
+        <div style="margin-bottom: 20px;" class="rcorners1">
+            <h2>Känner du dig fortfarande osäker på Variabler?</h2>
+            <p>Här finns mer information och @Model.TipInfos[0] </p>
+            <br/>
+            <a class="link" href="@Model.Urls[0]" target="_blank">@Model.LinkInfos[0]</a>
+            <br/>  
+            <a class="link" href="@Model.Urls[1]" target="_blank">@Model.LinkInfos[1]</a>
+    </div>
+    <script>
+        // Script to open and close sidebar
+        function w3_open() {
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("myOverlay").style.display = "block";
+        }
+
+        function w3_close() {
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("myOverlay").style.display = "none";
+        }
+
+        prettyPrint();
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
