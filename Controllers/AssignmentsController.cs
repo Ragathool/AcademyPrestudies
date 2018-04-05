@@ -81,7 +81,9 @@ namespace AcademyPrestudies.Controllers
             var finishedId = assignmentrepository.GetCourseFinishedId(userId, courseModel.Id);
             var instructions = assignmentrepository.GetInstructions(courseModel.Id);
             var solutions = assignmentrepository.GetSolutions(courseModel.Id);
-            var tipinfo = assignmentrepository.GetTipInfos(courseModel.Id);
+            var exerciseid = assignmentrepository.GetExerciseId(courseModel.Id);
+            var tipsid = assignmentrepository.GetTipsId(exerciseid);
+            var tipinfo = assignmentrepository.GetTipInfos(tipsid);
             var urls = assignmentrepository.GetUrls(courseModel.Id);
             var linkinfos = assignmentrepository.GetLinkInfos(courseModel.Id);
             var finishedcourses = assignmentrepository.GetFinishedCourses(userId);
