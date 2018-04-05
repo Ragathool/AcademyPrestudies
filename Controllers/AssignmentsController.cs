@@ -94,7 +94,8 @@ namespace AcademyPrestudies.Controllers
                 Solutions = solutions,
                 TipInfos = tipinfo,
                 Urls = urls,
-                LinkInfos = linkinfos
+                LinkInfos = linkinfos,
+                ProgressbarValue = progressbarpercent
             };
 
             return View(model);
