@@ -197,6 +197,18 @@ li a {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.progressbardiv {
+    margin: auto;
+    text-align-last: center;
+    border-radius: 0px;
+    background-color: white;
+    padding: 20px;
+    width: 50%;
+    height: auto;
+    margin-top: 35px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .codebox {
     margin: auto;
     text-align-last: center;
@@ -258,3 +270,11 @@ li a {
     border-radius: 50%;
     border: 1px solid black;
 }
+
+
+
+progress::-webkit-progress-value {
+    background-color: red !important;
+    color: red;
+}
+

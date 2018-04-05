@@ -127,6 +127,38 @@ namespace AcademyPrestudies.Models
             return b;
         }
 
+        internal List<int> GetTipsId(List<int> exerciseid)
+        {
+            var b = new List<int>();
+
+            foreach (var id in exerciseid)
+            {
+                var tips = context.Tips.Where
+                                    (x => x.Id == id).ToList();
+
+                
+                for (int i = 0; i < tips.Count; i++)
+                {
+                    b.Add(tips[i].Id);
+                }
+            }
+            
+            return b;
+        }
+
+        internal List<int> GetExerciseId(int id)
+        {
+            var exercises = context.Exercise.Where
+                    (x => x.CourseId == id).ToList();
+
+            var b = new List<int>();
+            for (int i = 0; i < exercises.Count; i++)
+            {
+                b.Add(exercises[i].Id);
+            }
+            return b;
+        }
+
         internal List<string> GetLinkInfos(int id)
         {
             var linkinfo = context.Links.Where
@@ -153,23 +185,28 @@ namespace AcademyPrestudies.Models
             return b;
         }
 
-        internal List<string> GetTipInfos(int id)
+        internal List<string> GetTipInfos(List<int> tipsid)
         {
-            var tipinfos = context.Tips.Where
-                    (x => x.Id == id).ToList();
-
             var b = new List<string>();
-            for (int i = 0; i < tipinfos.Count; i++)
+
+            foreach (var id in tipsid)
             {
-                b.Add(tipinfos[i].TipInfo);
+                var tipinfos = context.Tips.Where
+                                    (x => x.Id == id).ToList();
+                
+                for (int i = 0; i < tipinfos.Count; i++)
+                {
+                    b.Add(tipinfos[i].TipInfo);
+                }
             }
+            
             return b;
         }
 
         internal List<string> GetInstructions(int id)
         {
             var exercises = context.Exercise.Where
-                    (x => x.Id == id).ToList();
+                    (x => x.CourseId == id).ToList();
 
             var b = new List<string>();
             for (int i = 0; i < exercises.Count; i++)

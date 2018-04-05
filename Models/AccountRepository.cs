@@ -35,9 +35,7 @@ namespace AcademyPrestudies.Models
             this.context = context;
 
         }
-
-
-
+        
         public async Task<bool> TryLoginAsync(LogInVM viewModel)
         {
             // Create DB schema (first time)
@@ -47,9 +45,7 @@ namespace AcademyPrestudies.Models
             //var createResult = await userManager.CreateAsync(new IdentityUser("user"), "Password_123");
 
             var loginResult = await signInManager.PasswordSignInAsync(viewModel.Name, viewModel.Password, false, false);
-
             
-
             return loginResult.Succeeded;
         }
 
@@ -58,7 +54,7 @@ namespace AcademyPrestudies.Models
             return 0;
         }
 
-            internal async Task<IdentityResult> AddUser(CreateNewUserVM model)
+        internal async Task<IdentityResult> AddUser(CreateNewUserVM model)
         {
             var newUser = new IdentityUser(model.UserName);
             var result = await userManager.CreateAsync(newUser, model.Password);
@@ -87,9 +83,7 @@ namespace AcademyPrestudies.Models
                 });
                 await context.SaveChangesAsync();
             }
-
-
-
+            
             return result;
         }
 
@@ -99,13 +93,12 @@ namespace AcademyPrestudies.Models
         }
 
         private int GetAssignmentCount()
-            {
+        {
             var a = context.Courses.ToList();
 
             return a.Count;
-            }
+        }
         
-
         internal int GetUserIdByAspNetId(string id)
         {
             var a = context.Users.FirstOrDefault

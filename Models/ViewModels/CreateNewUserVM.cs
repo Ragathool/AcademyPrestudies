@@ -9,16 +9,17 @@ namespace AcademyPrestudies.Models.ViewModels
 {
     public class CreateNewUserVM
     {
-        [Required(ErrorMessage = "Fel namn")]
+        [Required(ErrorMessage = "Du måste fylla i ett användarnamn")]
         public string UserName { get; set; }
 
         //[NotMapped]
         //[Compare("Name")]
         //public string ConfirmName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Du måste fylla i ett lösenord")]
         [DataType(DataType.Password, ErrorMessage = "Wrong format on password")]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "Lösenordet måste bestå av minst sex tecken", MinimumLength = 6)]
+        //[StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         public string Password { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

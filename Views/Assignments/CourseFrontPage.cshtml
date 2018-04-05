@@ -14,6 +14,7 @@
     <link href="~/Styles/LogIn.css" rel="stylesheet" />
     <link href="~/Styles/StyleSheet.css" rel="stylesheet" />
     <link href="~/Styles/ContentPages.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -35,6 +36,7 @@
         </div>
         <div class="w3-bar-block">
 
+
             
             @foreach (var course in Model.Courses)
             {
@@ -50,6 +52,8 @@
             </a>
 
             }
+
+
 
         </div>
         <br />
@@ -83,11 +87,14 @@
 
 
     <header style="background-color:white; height:85px; margin-left:0; margin-top:0; position:fixed; top:0; right:0; width:100%;">
-        <div style="width:300px; margin-left:600px; margin-top:0px;">
+        <div style="width:50%; margin:auto; margin-top:10px">
+            <h4 style="text-align:center">Välkommen: @Model.UserName, nedan är din förstudiestatus</h4>
 
-
-            <p style="margin:0">Välkommen: @Model.UserName, du är klar med @Model.ProgressbarValue % av förstudierna</p>
-            <progress style="color:forestgreen" max="100" value="@Model.ProgressbarValue"></progress>
+            <div style="width:100%; margin:auto" class="progress">
+                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="@Model.ProgressbarValue" aria-valuemin="0" aria-valuemax="100" style="width:@Model.ProgressbarValue%">
+                    @Model.ProgressbarValue%
+                </div>
+            </div>
         </div>
 
 
