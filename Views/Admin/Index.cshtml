@@ -1,0 +1,79 @@
+﻿@model AdminIndexVM
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin</title>
+</head>
+<body>
+
+    <img style="position:absolute;bottom: 0;
+        right:0; z-index: 0; min-width:1490px; height:100%; margin-bottom:0px; align-content:stretch"
+         src="~/images/Outside business area male and female laughing.jpg" />
+
+    <div style="position:absolute; left:600px; top:50%" class="login-page">
+        <div class="form">
+            <h2>C# Kurser</h2>
+            <select>
+                @foreach (var course in Model.Courses)
+                {
+
+                    <option>@course.Name</option>
+
+                }
+            </select>
+            <form class="login-form" asp-controller="Admin" asp-action="Index">
+
+
+
+                <button type="submit">Ändra Kurs</button>
+            </form>
+            <p type="submit" class="message"><a href="/LogIn/">Tillbaka till Logga in </a></p>
+
+        </div>
+    </div>
+
+    <div style="position:absolute; left:280px; top:50%" class="login-page">
+        <div class="form">
+            <h2>Klasser</h2>
+            
+            <form class="login-form" asp-controller="Admin" asp-action="Index">
+    
+
+                <button type="submit">Lägg till ny klass</button>
+            </form>
+            <p type="submit" class="message"><a href="/LogIn/">Tillbaka till Logga in </a></p>
+
+        </div>
+    </div>
+
+    <div style="position:absolute; left:880px; top:50%" class="login-page">
+        <div class="form">
+            <h2>Användare</h2>
+            <select>
+                @foreach (var user in Model.Users)
+                {
+
+                    <option>@user.FirstName @user.LastName </option>
+
+                }
+            </select>
+            <form class="login-form" asp-controller="Admin" asp-action="Index">
+
+
+
+                <button type="submit">Ändra användare</button>
+            </form>
+            <p type="submit" class="message"><a href="/LogIn/">Tillbaka till Logga in </a></p>
+
+        </div>
+    </div>
+
+    <link href="~/Styles/Admin.css" rel="stylesheet" />
+    <script src="~/js/LogIn.js"></script>
+</body>
+</html>
+
+

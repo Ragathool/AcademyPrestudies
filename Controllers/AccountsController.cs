@@ -53,6 +53,7 @@ namespace AcademyPrestudies.Controllers
                 return View(viewModel);
             }
 
+            
             // Redirect user
             if (string.IsNullOrWhiteSpace(viewModel.ReturnUrl))
                 return RedirectToAction(nameof(AssignmentsController.CourseFrontPage), "Assignments");
@@ -87,7 +88,7 @@ namespace AcademyPrestudies.Controllers
             else
             {
                 await accountrepository.AddUser(model);
-                return RedirectToAction(nameof(AccountsController.LogIn), "Accounts");
+                return RedirectToAction(nameof(AssignmentsController.CourseFrontPage), "Assignments");
             }
         }
     }

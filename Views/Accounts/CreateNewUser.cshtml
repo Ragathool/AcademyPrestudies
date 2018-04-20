@@ -10,7 +10,7 @@
 <body>
 
     <img style="position:absolute;bottom: 0;
-        right:0; z-index: 0; width: 100%; min-width:1490px; align-content:center"
+        right:0; z-index: 0; min-width:1490px; height:100%; margin-bottom:0px; align-content:stretch"
              src="~/images/Outside business area male and female laughing.jpg" />
     
         <div style="position:absolute; left:280px; top:-80px" class="login-page">
@@ -21,22 +21,22 @@
                     <label style="font-weight:bold" asp-for="FirstName">Förnamn</label>
                     <input placeholder="Förnamn" asp-for="FirstName" />
                     <span asp-validation-for="FirstName"></span>
-                    <br />
+                    
                     <br />
                     <label style="font-weight:bold" asp-for="LastName">Efternamn</label>
                     <input placeholder="Efternamn" asp-for="LastName" />
                     <span asp-validation-for="LastName"></span>
-                    <br />
+                    
                     <br />
                     <label style="font-weight:bold" asp-for="UserName">Användarnamn</label>
                     <input placeholder="Användarnamn" asp-for="UserName" />
                     <span asp-validation-for="UserName"></span>
-                    <br />
+                    
                     <br />
                     <label style="font-weight:bold" asp-for="Password">Lösenord</label>
                     <input placeholder="Lösenord" asp-for="Password" />
                     <span asp-validation-for="Password"></span>
-                    <br />
+                    
                     <br />
                     <button type="submit">Skapa Konto</button>
                 </form>

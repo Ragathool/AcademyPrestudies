@@ -51,6 +51,22 @@ namespace AcademyPrestudies.Models
             return b;
 
         }
+
+        internal List<Users> GetAllUsers()
+        {
+            var a = context.Users.Select
+                    (u => new Users
+                    {
+                        Id = u.Id,
+                        FirstName = u.FirstName,
+                        
+                    })
+                    .OrderBy(u => u.FirstName)
+                    .ToList();
+
+            return a;
+        }
+
         public AssignmentPageV2VM AssignmentCompleted(AssignmentPageV2VM model)
         {
 

@@ -1,8 +1,6 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Threading.Tasks;
 using AcademyPrestudies.Models;
 using AcademyPrestudies.Models.Entities;
 using AcademyPrestudies.Models.ViewModels;
@@ -19,20 +17,16 @@ namespace AcademyPrestudies.Controllers
         IMemoryCache cache;
 
         private UserManager<IdentityUser> _userManager;
-        private readonly SignInManager<IdentityUser> _SignInManager;
-        private SignInManager<IdentityUser> _signInManager;
-         
 
         AssignmentRepository assignmentrepository;
         AccountRepository accountrepository;
 
-        public AssignmentsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> _signInManager)
+        public AssignmentsController(AssignmentRepository assignmentrepository, IMemoryCache cache, AccountRepository accountrepository, UserManager<IdentityUser> userManager)
         {
             this.assignmentrepository = assignmentrepository;
             this.accountrepository = accountrepository;
             this.cache = cache;
             _userManager = userManager;
-            _SignInManager = _signInManager;
         }
 
 
@@ -45,7 +39,7 @@ namespace AcademyPrestudies.Controllers
             model.Courses = courses;
             
 
-            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+           ClaimsPrincipal currentUser = User;
             var aspNetUserId = _userManager.GetUserId(User);
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
             var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
@@ -74,7 +68,7 @@ namespace AcademyPrestudies.Controllers
             cfpmodel.Courses = courses;
 
             var courseModel = assignmentrepository.GetAssignmentById(id);
-            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            ClaimsPrincipal currentUser = User;
             var aspNetUserId = _userManager.GetUserId(User);
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
             var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
@@ -126,7 +120,7 @@ namespace AcademyPrestudies.Controllers
             cfpmodel.Courses = courses;
 
             var courseModel = assignmentrepository.GetAssignmentById(id);
-            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            ClaimsPrincipal currentUser = User;
             var aspNetUserId = _userManager.GetUserId(User);
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
             var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
@@ -178,7 +172,7 @@ namespace AcademyPrestudies.Controllers
             cfpmodel.Courses = courses;
 
             var courseModel = assignmentrepository.GetAssignmentById(id);
-            System.Security.Claims.ClaimsPrincipal currentUser = this.User;
+            ClaimsPrincipal currentUser = User;
             var aspNetUserId = _userManager.GetUserId(User);
             var userId = assignmentrepository.GetUserIdByAspNetId(aspNetUserId);
             var username = assignmentrepository.GetUserNameByAspNetId(aspNetUserId);
