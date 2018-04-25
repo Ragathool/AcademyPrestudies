@@ -14,6 +14,7 @@ namespace AcademyPrestudies.Models.Entities
         public string Instruction { get; set; }
         public string Solution { get; set; }
         public int CourseId { get; set; }
+        public bool? FinishedId { get; set; }
 
         public Courses Course { get; set; }
         public ICollection<Tips> Tips { get; set; }
