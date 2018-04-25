@@ -21,25 +21,25 @@ namespace AcademyPrestudies.Models
         {
 
 
-            var a = context.CourseProgress.FirstOrDefault
+            var a = context.UserProgress.FirstOrDefault
                     (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
 
-            if (a.FinishedId == true)
+            if (a.CourseFinishedId == true)
             {
-                a.FinishedId = false;
+                a.CourseFinishedId = false;
             }
             else
             {
-                a.FinishedId = true;
+                a.CourseFinishedId = true;
             }
 
-            context.CourseProgress.Update(a);
+            context.UserProgress.Update(a);
             context.SaveChanges();
 
             AssignmentPageV1VM b = new AssignmentPageV1VM();
 
             b = model;
-            b.FinishedId = a.FinishedId;
+            b.FinishedId = a.CourseFinishedId;
             
             var finished = GetFinishedCourses((b.UserId).GetValueOrDefault());
             var courseCount = GetAllAssignments().Count;
@@ -71,25 +71,25 @@ namespace AcademyPrestudies.Models
         {
 
 
-            var a = context.CourseProgress.FirstOrDefault
+            var a = context.UserProgress.FirstOrDefault
                     (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
 
-            if (a.FinishedId == true)
+            if (a.CourseFinishedId == true)
             {
-                a.FinishedId = false;
+                a.CourseFinishedId = false;
             }
             else
             {
-                a.FinishedId = true;
+                a.CourseFinishedId = true;
             }
 
-            context.CourseProgress.Update(a);
+            context.UserProgress.Update(a);
             context.SaveChanges();
 
             AssignmentPageV2VM b = new AssignmentPageV2VM();
 
             b = model;
-            b.FinishedId = a.FinishedId;
+            b.FinishedId = a.CourseFinishedId;
 
             var finished = GetFinishedCourses((b.UserId).GetValueOrDefault());
             var courseCount = GetAllAssignments().Count;
@@ -105,25 +105,25 @@ namespace AcademyPrestudies.Models
         {
 
 
-            var a = context.CourseProgress.FirstOrDefault
+            var a = context.UserProgress.FirstOrDefault
                     (x => x.CourseId == model.CourseId && x.UserId == model.UserId);
 
-            if (a.FinishedId == true)
+            if (a.CourseFinishedId == true)
             {
-                a.FinishedId = false;
+                a.CourseFinishedId = false;
             }
             else
             {
-                a.FinishedId = true;
+                a.CourseFinishedId = true;
             }
 
-            context.CourseProgress.Update(a);
+            context.UserProgress.Update(a);
             context.SaveChanges();
 
             AssignmentPageV3VM b = new AssignmentPageV3VM();
 
             b = model;
-            b.FinishedId = a.FinishedId;
+            b.FinishedId = a.CourseFinishedId;
 
             var finished = GetFinishedCourses((b.UserId).GetValueOrDefault());
             var courseCount = GetAllAssignments().Count;
@@ -160,16 +160,16 @@ namespace AcademyPrestudies.Models
 
         internal int GetFinishedCourses(int userId)
         {
-            var a = context.CourseProgress.Where
-                    (x => x.FinishedId == true && x.UserId == userId).ToList();
+            var a = context.UserProgress.Where
+                    (x => x.CourseFinishedId == true && x.UserId == userId).ToList();
 
             return a.Count;
         }
 
-        public List<CourseProgress> GetFinishedCoursesProgress(int userId)
+        public List<UserProgress> GetFinishedCoursesProgress(int userId)
         {
-            var a = context.CourseProgress.Where
-                    (x => x.FinishedId == true && x.UserId == userId).ToList();
+            var a = context.UserProgress.Where
+                    (x => x.CourseFinishedId == true && x.UserId == userId).ToList();
 
             return a;
         }
@@ -192,10 +192,10 @@ namespace AcademyPrestudies.Models
 
         public bool GetCourseFinishedId(int userId, int courseId)
         {
-            var a = context.CourseProgress.FirstOrDefault
+            var a = context.UserProgress.FirstOrDefault
                     (x => x.CourseId == courseId && x.UserId == userId);
 
-            return a.FinishedId;
+            return a.CourseFinishedId;
         }
 
         internal List<string> GetSolutions(int id)

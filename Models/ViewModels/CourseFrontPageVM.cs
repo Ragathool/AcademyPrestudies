@@ -10,7 +10,7 @@ namespace AcademyPrestudies.Models.ViewModels
     {
 
         public List<Courses> Courses { get; set; }
-        public List<CourseProgress> CourseProgress { get; set; }
+        public List<UserProgress> UserProgress { get; set; }
 
         public double ProgressbarValue { get; set; }
         public int UserId { get; set; }

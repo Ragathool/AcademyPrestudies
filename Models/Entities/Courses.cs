@@ -14,7 +14,9 @@ namespace AcademyPrestudies.Models.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public int? ClassId { get; set; }
 
+        public Classes Class { get; set; }
         public ICollection<Exercise> Exercise { get; set; }
         public ICollection<Links> Links { get; set; }
     }

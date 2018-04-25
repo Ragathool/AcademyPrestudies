@@ -6,11 +6,12 @@ namespace AcademyPrestudies.Models.Entities
 {
     public partial class MuninContext : DbContext
     {
-        public virtual DbSet<CourseProgress> CourseProgress { get; set; }
+        public virtual DbSet<Classes> Classes { get; set; }
         public virtual DbSet<Courses> Courses { get; set; }
         public virtual DbSet<Exercise> Exercise { get; set; }
         public virtual DbSet<Links> Links { get; set; }
         public virtual DbSet<Tips> Tips { get; set; }
+        public virtual DbSet<UserProgress> UserProgress { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -24,9 +25,13 @@ namespace AcademyPrestudies.Models.Entities
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CourseProgress>(entity =>
+            modelBuilder.Entity<Classes>(entity =>
             {
-                entity.ToTable("CourseProgress", "pre");
+                entity.ToTable("Classes", "pre");
+
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Name).HasColumnType("nchar(50)");
             });
 
             modelBuilder.Entity<Courses>(entity =>
@@ -34,6 +39,11 @@ namespace AcademyPrestudies.Models.Entities
                 entity.ToTable("Courses", "pre");
 
                 entity.Property(e => e.Name).HasMaxLength(50);
+
+                entity.HasOne(d => d.Class)
+                    .WithMany(p => p.Courses)
+                    .HasForeignKey(d => d.ClassId)
+                    .HasConstraintName("FK_Courses_Classes");
             });
 
             modelBuilder.Entity<Exercise>(entity =>
@@ -73,6 +83,11 @@ namespace AcademyPrestudies.Models.Entities
                     .HasForeignKey(d => d.ExerciseId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Tips_Exercise");
+            });
+
+            modelBuilder.Entity<UserProgress>(entity =>
+            {
+                entity.ToTable("UserProgress", "pre");
             });
 
             modelBuilder.Entity<Users>(entity =>

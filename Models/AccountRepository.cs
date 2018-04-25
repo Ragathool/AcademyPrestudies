@@ -74,11 +74,11 @@ namespace AcademyPrestudies.Models
 
             for (int i = 1; i <= assignmentcount; i++)
             {
-                context.CourseProgress.Add(new CourseProgress
+                context.UserProgress.Add(new UserProgress
                 {
                     UserId = userid,
                     CourseId = i,
-                    FinishedId = false
+                    CourseFinishedId = false
 
                 });
                 await context.SaveChangesAsync();

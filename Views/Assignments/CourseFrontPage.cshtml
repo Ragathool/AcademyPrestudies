@@ -42,9 +42,9 @@
             {
             <a href="AssignmentPageV1/@course.Id" onclick="w3_close()" class="w3-bar-item w3-button w3-padding .w3-hover-text-green:hover">
                 <i class="fa fa-th-large fa-fw w3-margin-right"></i>@course.Name
-                @foreach (var courseprogress in Model.CourseProgress)
+                @foreach (var courseprogress in Model.UserProgress)
                 {
-                if (course.Id == courseprogress.CourseId && courseprogress.FinishedId == true)
+                if (course.Id == courseprogress.CourseId && courseprogress.CourseFinishedId == true)
                 {
                     <strong style="color:#4CAF50;">Klar</strong>
                 }

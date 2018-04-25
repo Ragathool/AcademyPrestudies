@@ -47,9 +47,9 @@ namespace AcademyPrestudies.Controllers
             var progressbar = (double)finishedcourses / (double)courses.Count;
             var progressbarpercent = progressbar * 100;
 
-            List<CourseProgress> courseProgress = assignmentrepository.GetFinishedCoursesProgress(userId);
+            List<UserProgress> userProgress = assignmentrepository.GetFinishedCoursesProgress(userId);
 
-            model.CourseProgress = courseProgress;
+            model.UserProgress = userProgress;
 
             model.UserId = userId;
             model.UserName = username;
